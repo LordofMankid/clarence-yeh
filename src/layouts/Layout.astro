@@ -11,19 +11,18 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta
-			http-equiv="Content-Security-Policy"
-			content="default-src 'self'"
-		/>
-		<!-- All Search Engines -->
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<!-- idk what this is lol -->
+		<meta name="generator" content={Astro.generator} />
 		<meta name="robots" content="index,follow" />
 		<!-- Google Specific -->
 		<meta name="googlebot" content="index,follow" />
 		<meta name="description" content="Clarence Yeh's personal website." />
-		<title>Clarence Yeh | Software Engineer</title>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>Clarence Yeh | Software Engineer </title>
 	</head>
 	<body>
 		<slot />
