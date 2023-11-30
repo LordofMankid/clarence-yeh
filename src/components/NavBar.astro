@@ -1,0 +1,50 @@
+<nav>
+	<a href="#Home">Home</a>
+	<a href="#Projects">Projects</a>
+	<a href="#Skills">Skills</a>
+	<a>About Me</a>
+</nav>
+
+<style>
+	nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 35vw;
+		height: 40px;
+		border-radius: 20px;
+		margin: 2% auto;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		background-color: var(--tertiary-background);
+		-webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+		-moz-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+		box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+	}
+
+	a {
+		background-color: transparent;
+		display: block;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.selected {
+		background-color: var(--light);
+		height: 30px;
+
+		border-radius: 15px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+</style>
+
+<script>
+	$("a").click(function () {
+		$("a").removeClass("selected");
+		$(this).addClass("selected");
+	});
+</script>

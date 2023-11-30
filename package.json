@@ -13,5 +13,10 @@
     "@astrojs/check": "^0.3.1",
     "astro": "^3.6.1",
     "typescript": "^5.3.2"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.29",
+    "prettier": "^3.1.0",
+    "prettier-plugin-astro": "^0.12.2"
   }
 }
