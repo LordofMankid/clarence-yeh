@@ -38,8 +38,9 @@ const { title } = Astro.props;
 		--tertiary: rgb(251, 252, 238);
 		--tertiary-background: rgba(251, 252, 238, 0.8);
 		--coral-pink: #ee9480ff;
-		--dark: #14110fff;
+		--dark: rgb(48, 38, 32);
 		--secondary: #626267ff;
+		--secondary-transparent: rgba(98, 98, 103, 0.75);
 		--light: rgb(255, 255, 255, 0.9);
 
 		--accent: 136, 58, 234;
@@ -53,15 +54,22 @@ const { title } = Astro.props;
 		);
 	}
 	p,
-	a {
-		color: var(--secondary);
-		text-decoration: none;
-	}
+	a,
 	h1,
 	h2 {
-		color: var(--licorice);
+		font-family: "CommitMono", sans-serif;
+		color: var(--dark);
+		text-decoration: none;
+		margin: 0 auto;
 	}
 
+	@font-face {
+		font-family: "CommitMono";
+		src: url("/fonts/CommitMono-400-Regular.otf") format("opentype");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
 	code {
 		font-family:
 			Menlo,

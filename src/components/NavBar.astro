@@ -12,13 +12,13 @@
 		left: 0;
 		right: 0;
 		width: 35vw;
-		height: 40px;
-		border-radius: 20px;
+		height: 50px;
+		border-radius: 25px;
 		margin: 2% auto;
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
-		background-color: var(--tertiary-background);
+		background-color: var(--secondary-transparent);
 		-webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
 		-moz-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
 		box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
@@ -31,11 +31,18 @@
 		padding-right: 10px;
 	}
 
+	a:hover {
+		color: var(--light);
+	}
+
+	a.selected:hover {
+		color: var(--dark);
+	}
+
 	.selected {
 		background-color: var(--light);
-		height: 30px;
-
-		border-radius: 15px;
+		height: 36px;
+		border-radius: 18px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
