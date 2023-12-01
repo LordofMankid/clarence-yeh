@@ -7,7 +7,7 @@ import Icon from "astro-icon";
 		<Icon name="mdi:hamburger-menu-back" color="var(--dark)" size="35" />
 	</div>
 
-	<ul class="menu">
+	<ul class="menu hidden">
 		<li><a href="#Home">Home</a></li>
 		<li><a href="#Projects">Projects</a></li>
 		<li><a href="#Skills">Skills</a></li>
@@ -46,41 +46,45 @@ import Icon from "astro-icon";
 		color: var(--dark);
 	}
 
-	.open-menu {
-		display: block;
-	}
 	.menu {
 		box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0);
 		background-color: transparent;
 		list-style: none;
 		margin: 0 auto;
 		padding: 0;
-		max-height: 0;
-		overflow: hidden;
-		display: block;
 		text-align: right;
 		float: right;
+		animation-duration: 0.3s;
+		animation-fill-mode: forwards;
+	}
+
+	.hidden {
+		display: none;
 	}
 
 	.menu.show {
+		animation-duration: 0.3s;
+		animation-fill-mode: forwards;
 	}
 	.menu li {
-		padding-top: 10px;
+		margin: 10px 0px;
 	}
+
+	.menu li .selected {
+		background-color: var(--secondary-transparent);
+		height: 24px;
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		margin: -3px 0px;
+	}
+
 	.hamburger-icon {
 		cursor: pointer;
 		display: flex;
 		height: 50px;
 		border-radius: 25px;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.selected {
-		background-color: var(--light);
-		height: 36px;
-		border-radius: 18px;
-		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
@@ -108,22 +112,57 @@ import Icon from "astro-icon";
 			margin: 0 0;
 			padding: 0;
 			max-height: 50px;
+			animation: none;
 		}
 
 		.menu.show {
 			display: flex;
+			animation: none;
 		}
 		.menu li {
 			padding-top: 0px;
+			margin: 0px;
 		}
 
 		.hamburger-icon {
 			display: none;
 		}
+
+		.menu li .selected {
+			background-color: var(--light);
+			height: 36px;
+			border-radius: 18px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 	}
 
 	@keyframes openMenu {
 		from {
+			transform: translateY(-50%);
+			opacity: 0;
+			display: none;
+		}
+
+		to {
+			transform: translateY(0);
+			opacity: 1;
+			display: block;
+		}
+	}
+
+	@keyframes closeMenu {
+		from {
+			transform: translateY(0);
+			opacity: 1;
+			display: block;
+		}
+
+		to {
+			transform: translateY(-50%);
+			opacity: 0;
+			display: none;
 		}
 	}
 </style>
@@ -131,6 +170,12 @@ import Icon from "astro-icon";
 <script>
 	$(".hamburger-icon").on("click", function () {
 		$(".menu").toggleClass("show");
+		$(".menu").removeClass("hidden");
+		if ($(".menu").hasClass("show")) {
+			$(".menu").css("animation-name", "openMenu");
+		} else {
+			$(".menu").css("animation-name", "closeMenu");
+		}
 	});
 
 	$("a").on("click", function () {
