@@ -1,26 +1,33 @@
-<nav>
-	<a href="#Home">Home</a>
-	<a href="#Projects">Projects</a>
-	<a href="#Skills">Skills</a>
-	<a>About Me</a>
+---
+import Icon from "astro-icon";
+---
+
+<nav id="navbar">
+	<div class="hamburger-icon">
+		<Icon name="mdi:hamburger-menu-back" color="var(--dark)" size="35" />
+	</div>
+
+	<ul class="menu">
+		<li><a href="#Home">Home</a></li>
+		<li><a href="#Projects">Projects</a></li>
+		<li><a href="#Skills">Skills</a></li>
+		<li><a href="#">About Me</a></li>
+	</ul>
 </nav>
 
 <style>
 	nav {
 		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		width: 35vw;
+
 		height: 50px;
+		width: 50px;
 		border-radius: 25px;
-		margin: 2% auto;
-		display: flex;
-		justify-content: space-evenly;
-		align-items: center;
+
+		top: 50px;
+		right: 25px;
+		float: right;
+		display: block;
 		background-color: var(--secondary-transparent);
-		-webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
-		-moz-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
 		box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
 	}
 
@@ -39,6 +46,36 @@
 		color: var(--dark);
 	}
 
+	.open-menu {
+		display: block;
+	}
+	.menu {
+		box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0);
+		background-color: transparent;
+		list-style: none;
+		margin: 0 auto;
+		padding: 0;
+		max-height: 0;
+		overflow: hidden;
+		display: block;
+		text-align: right;
+		float: right;
+	}
+
+	.menu.show {
+	}
+	.menu li {
+		padding-top: 10px;
+	}
+	.hamburger-icon {
+		cursor: pointer;
+		display: flex;
+		height: 50px;
+		border-radius: 25px;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.selected {
 		background-color: var(--light);
 		height: 36px;
@@ -47,9 +84,55 @@
 		align-items: center;
 		justify-content: center;
 	}
+
+	@media screen and (min-width: 768px) {
+		nav {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			left: 0;
+			right: 0;
+			width: 45vw;
+			height: 50px;
+			margin: auto;
+			border-radius: 25px;
+			max-width: 550px;
+		}
+
+		.menu {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			flex-direction: row;
+			width: 100%;
+			margin: 0 0;
+			padding: 0;
+			max-height: 50px;
+		}
+
+		.menu.show {
+			display: flex;
+		}
+		.menu li {
+			padding-top: 0px;
+		}
+
+		.hamburger-icon {
+			display: none;
+		}
+	}
+
+	@keyframes openMenu {
+		from {
+		}
+	}
 </style>
 
 <script>
+	$(".hamburger-icon").on("click", function () {
+		$(".menu").toggleClass("show");
+	});
+
 	$("a").on("click", function () {
 		$("a").removeClass("selected");
 		$(this).addClass("selected");
