@@ -161,14 +161,14 @@ import Icon from "astro-icon";
 
 		to {
 			transform: translateY(-50%);
-			opacity: 0;
+			opacity: 1;
 			display: none;
 		}
 	}
 </style>
 
 <script>
-	$(".hamburger-icon").on("click tap", function () {
+	$(".hamburger-icon").on("click", function () {
 		$(".menu").toggleClass("show");
 		$(".menu").removeClass("hidden");
 		if ($(".menu").hasClass("show")) {
