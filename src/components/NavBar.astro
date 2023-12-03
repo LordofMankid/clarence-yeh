@@ -168,7 +168,7 @@ import Icon from "astro-icon";
 </style>
 
 <script>
-	$(".hamburger-icon").on("click", function () {
+	$(".hamburger-icon").on("click tap", function () {
 		$(".menu").toggleClass("show");
 		$(".menu").removeClass("hidden");
 		if ($(".menu").hasClass("show")) {
