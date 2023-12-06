@@ -3,9 +3,14 @@ import Card from "./Card.astro";
 ---
 
 <div id="Projects">
-	<h2>My Projects</h2>
+	<h2 class="title">My Projects</h2>
+
 	<div id="content">
-		<Card title="Project One" body="lol" href="" />
+		<Card
+			title="Project One"
+			body="A fun foray into the world of astrophysics. Not my best look, to be honest, but it was fun while it lasted."
+			href=""
+		/>
 	</div>
 </div>
 
@@ -18,5 +23,13 @@ import Card from "./Card.astro";
 		width: 50vw;
 		margin: auto;
 		display: flex;
+		justify-content: center;
+	}
+
+	.title {
+		width: 80%;
+		text-align: center;
+		margin: auto;
+		display: block;
 	}
 </style>

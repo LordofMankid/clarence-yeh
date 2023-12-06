@@ -35,8 +35,12 @@ const { title } = Astro.props;
 <style is:global>
 	:root {
 		--air-superiority-blue: #80a1c1ff;
+		--vista-blue: rgb(114, 161, 229);
+		--vista-blue-light: rgba(114, 162, 229, 0.15);
+		--wisteria: rgb(176, 163, 212);
 		--tertiary: rgb(251, 252, 238);
-		--tertiary-background: rgba(251, 252, 238, 0.8);
+		--tertiary-background: rgb(251, 252, 238);
+		--tertiary-darker: rgba(183, 184, 173, 0.3);
 		--coral-pink: #ee9480ff;
 		--dark: rgb(48, 38, 32);
 		--secondary: #626267ff;
@@ -48,10 +52,13 @@ const { title } = Astro.props;
 		--accent-dark: 49, 10, 101;
 		--accent-gradient: linear-gradient(
 			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
+			var(--dark),
+			var(--tertiary-background) 30%,
 			white 60%
 		);
+	}
+	p {
+		font-size: medium;
 	}
 	p,
 	a,
