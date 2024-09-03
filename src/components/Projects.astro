@@ -1,44 +1,35 @@
 ---
-import Card from "./Card.astro";
+import Card from "./Card.tsx";
 ---
 
 <div id="Projects">
-	<h2 class="title">My Projects</h2>
+  <h2 class="title">My Projects</h2>
 
-	<div id="content">
-		<Card
-			title="Project One"
-			body="A fun foray into the world of astrophysics. Not my best look, to be honest, but it was fun while it lasted."
-			href=""
-		/>
-		<Card
-			title="Project Two"
-			body="Once upon a time, there was a man. I didn't like him very much, but whatever. We tried our best."
-			href=""
-		/>
-	</div>
+  <div id="content">
+    <Card />
+  </div>
 </div>
 
 <style>
-	#Projects {
-		background-color: var(--tertiary);
-		min-height: 90vh;
-	}
-	#content {
-		width: 50vw;
-		max-width: 800px;
-		margin: auto;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
+  #Projects {
+    background-color: var(--tertiary);
+    min-height: 90vh;
+  }
+  #content {
+    width: 50vw;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-	.title {
-		padding-top: 150px;
-		padding-bottom: 10px;
-		width: 80%;
-		text-align: center;
-		margin: auto;
-		display: block;
-	}
+  .title {
+    padding-top: 150px;
+    padding-bottom: 10px;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    display: block;
+  }
 </style>
