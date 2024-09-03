@@ -1,6 +1,7 @@
 ---
+import "@fontsource-variable/inter";
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,91 +9,89 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
 
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		<!-- idk what this is lol -->
-		<meta name="generator" content={Astro.generator} />
-		<meta name="robots" content="index,follow" />
-		<!-- Google Specific -->
-		<meta name="googlebot" content="index,follow" />
-		<meta name="description" content="Clarence Yeh's personal website." />
-		<title>Clarence Yeh | Software Engineer</title>
+    <!-- idk what this is lol -->
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow" />
+    <!-- Google Specific -->
+    <meta name="googlebot" content="index,follow" />
+    <meta name="description" content="Clarence Yeh's personal website." />
+    <title>Clarence Yeh | Software Engineer</title>
 
-		<script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js"
-		></script>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js"
+    ></script>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style is:global>
-	:root {
-		--air-superiority-blue: #80a1c1ff;
-		--vista-blue: rgb(114, 161, 229);
-		--vista-blue-light: rgba(114, 162, 229, 0.15);
-		--wisteria: rgb(176, 163, 212);
-		--tertiary: rgb(251, 252, 238);
-		--tertiary-background: rgb(251, 252, 238);
-		--tertiary-darker: rgba(183, 184, 173, 0.3);
-		--coral-pink: #ee9480ff;
-		--dark: rgb(48, 38, 32);
-		--secondary: #626267ff;
-		--secondary-transparent: rgba(98, 98, 103, 0.75);
-		--light: rgb(255, 255, 255, 0.9);
-
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			var(--dark),
-			var(--tertiary-background) 30%,
-			white 60%
-		);
-	}
-	p {
-		font-size: medium;
-	}
-	p,
-	a,
-	h1,
-	h2 {
-		font-family: "CommitMono", sans-serif;
-		color: var(--dark);
-		text-decoration: none;
-		margin: 0 auto;
-	}
-
-	@font-face {
-		font-family: "CommitMono";
-		src: url("/fonts/CommitMono-400-Regular.otf") format("opentype");
-		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-	body {
-		width: 100%;
-		margin: 0 0 0 0;
-	}
-	h2 {
-		margin: 0 0 0 0;
-	}
+  :root {
+    --air-superiority-blue: #80a1c1ff;
+    --vista-blue: rgb(114, 161, 229);
+    --vista-blue-light: rgba(114, 162, 229, 0.15);
+    --wisteria: rgb(176, 163, 212);
+    --tertiary: rgb(251, 252, 238);
+    --tertiary-background: rgb(251, 252, 238);
+    --tertiary-darker: rgba(183, 184, 173, 0.3);
+    --coral-pink: #ee9480ff;
+    --dark: rgb(48, 38, 32);
+    --secondary: #626267ff;
+    --secondary-transparent: rgba(98, 98, 103, 0.75);
+    --light: rgb(255, 255, 255, 0.9);
+    --grey: rgb(0, 0, 0, 0.4);
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      var(--dark),
+      var(--tertiary-background) 30%,
+      white 60%
+    );
+    --blue-1: #042373;
+    --blue-2: #3c67d5;
+    --blue-3: #7190e0;
+    --blue-4: #cddaf8;
+    --blue-5: #c7ebef;
+  }
+  p {
+    font-size: 18px;
+  }
+  p,
+  a,
+  h1,
+  h2 {
+    color: var(--dark);
+    text-decoration: none;
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: 47px;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+  body {
+    font-family: "Inter Variable";
+    width: 100%;
+    margin: 0 0 0 0;
+    background-color: var(--blue-4);
+  }
 </style>

@@ -1,19 +1,68 @@
+---
+import InfoCard from "./about/InfoCard.astro";
+import LinkIcons from "./index/LinkIcons.astro";
+import ProfileIcon from "./index/ProfileIcon.astro";
+---
+
 <div id="Home">
-	<div id="content">
-		<div>
-			<h2>I'm Clarence Yeh.</h2>
-		</div>
-	</div>
+  <div id="content">
+    <ProfileIcon />
+    <div>
+      <h2>Hey there, I'm Clarence Yeh</h2>
+    </div>
+
+    <div id="blurb">
+      <div><p>I'M A SOFTWARE ENGINEER CURRENTLY AT MARKIT & FREEBITES</p></div>
+
+      <LinkIcons />
+    </div>
+  </div>
 </div>
 
 <style>
-	#Home {
-		background-color: var(--vista-blue);
-		height: 90vh;
-	}
-	#content {
-		width: 80vw;
-		margin: auto;
-		padding-top: 60px;
-	}
+  #Home {
+    height: 90vh;
+  }
+
+  #content {
+    width: 80vw;
+    margin: auto;
+    padding-top: 60px;
+  }
+
+  #description {
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #fun-content {
+    flex-direction: column;
+  }
+
+  #blurb {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    p {
+      font-size: medium;
+    }
+
+    #description {
+      width: 400px;
+    }
+
+    #fun-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
 </style>
