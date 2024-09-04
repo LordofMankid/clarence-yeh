@@ -1,27 +1,35 @@
 ---
-import Card from "./Card.tsx";
+import Card from "./Card";
+import SectionTitle from "./SectionTitle";
 ---
 
 <div id="Projects">
-  <h2 class="title">My Projects</h2>
+  <SectionTitle title="PROJECTS" />
 
   <div id="content">
-    <Card />
+    <Card title="placeholder" subtitle="placeholder 2" date="placeholder 3" />
+    <Card title="placeholder" subtitle="placeholder 2" date="placeholder 3" />
+    <Card title="placeholder" subtitle="placeholder 2" date="placeholder 3" />
+    <Card title="placeholder" subtitle="placeholder 2" date="placeholder 3" />
   </div>
 </div>
 
 <style>
   #Projects {
-    background-color: var(--tertiary);
     min-height: 90vh;
   }
+
   #content {
-    width: 50vw;
-    max-width: 800px;
+    width: 80vw;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 104px; /* Gap between grid items */
+  }
+  @media (max-width: 700px) {
+    #content {
+      grid-template-columns: 1fr; /* Collapse to 1 column */
+    }
   }
 
   .title {
