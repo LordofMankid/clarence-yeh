@@ -22,6 +22,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.78.0",
+    "tech-stack-icons": "^2.1.0",
     "typescript": "^5.3.2"
   },
   "devDependencies": {

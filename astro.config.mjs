@@ -7,5 +7,5 @@ export default defineConfig({
   image: {
     remotePatterns: [{ protocol: "https" }]
   },
-  integrations: [icon(), react()],
+  integrations: [icon(), react({ experimentalReactChildren: true })],
 });

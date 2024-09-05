@@ -1,5 +1,5 @@
 ---
-import Card from "./Card";
+import Card from "./Card.astro";
 import SectionTitle from "./SectionTitle";
 const projects = await Astro.glob("../pages/projects/*.md");
 ---
@@ -17,7 +17,6 @@ const projects = await Astro.glob("../pages/projects/*.md");
             url={project.url}
             date={project.frontmatter.date}
             techStack={project.frontmatter.techStack}
-            client:load
           />
         );
       })

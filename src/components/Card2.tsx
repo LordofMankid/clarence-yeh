@@ -1,4 +1,4 @@
-import { Icon } from "astro-icon/components";
+import StackIcon from "tech-stack-icons";
 import "../styles/Card.scss";
 
 interface CardProps {
@@ -32,7 +32,7 @@ export default function Card(props: CardProps) {
           <div className="tech-stack">
             {techStack
               ? techStack.map((skill) => {
-                  return <Icon name={skill} key={skill} />;
+                  return <StackIcon name={skill} key={skill} />;
                 })
               : null}
           </div>
