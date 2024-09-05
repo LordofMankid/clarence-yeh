@@ -24,13 +24,7 @@ export default function Card(props: CardProps) {
   return (
     <div className="card-container">
       <div className="image-container">
-        <div className="tech-stack">
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-          <p>hi</p>
-        </div>
+        <div className="tech-stack"></div>
       </div>
       <div className="text-container">
         <div className="header-container">

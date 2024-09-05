@@ -26,9 +26,10 @@ import SectionTitle from "./SectionTitle";
     grid-template-columns: repeat(2, 1fr); /* 2 columns */
     gap: 104px; /* Gap between grid items */
   }
-  @media (max-width: 700px) {
+
+  @media (min-width: 2500px) {
     #content {
-      grid-template-columns: 1fr; /* Collapse to 1 column */
+      grid-template-columns: repeat(3, 1fr); /* 2 columns */
     }
   }
 
