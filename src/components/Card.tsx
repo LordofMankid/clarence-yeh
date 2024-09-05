@@ -1,14 +1,16 @@
+import StackIcon from "tech-stack-icons";
 import "../styles/Card.scss";
 
 interface CardProps {
   title: string;
   subtitle: string;
   date: string;
-  url: string;
+  url?: string;
+  techStack: string[];
 }
 
 export default function Card(props: CardProps) {
-  const { title, subtitle, date, url } = props;
+  const { title, subtitle, date, url, techStack } = props;
   const styles = {
     headerText: {
       fontSize: 28,
@@ -27,7 +29,13 @@ export default function Card(props: CardProps) {
     <a href={url} className="card-link">
       <div className="card-container">
         <div className="image-container">
-          <div className="tech-stack"></div>
+          <div className="tech-stack">
+            {techStack
+              ? techStack.map((skill) => {
+                  return <StackIcon name={skill} />;
+                })
+              : null}
+          </div>
         </div>
         <div className="text-container">
           <div className="header-container">

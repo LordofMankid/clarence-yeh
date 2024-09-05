@@ -1,29 +1,62 @@
 ---
+import StackIcon from "tech-stack-icons";
 import SectionTitle from "./SectionTitle";
+
+const skills: string[] = [
+  "github",
+  "typescript",
+  "firebase",
+  "reactjs",
+  "nextjs",
+  "mongodb",
+  "c++",
+  "css3",
+  "nodejs",
+  "gcloud",
+  "python",
+];
 ---
 
 <SectionTitle title="SKILLS" />
-<div
-  id="Skills"
-  style={{
-    width: "80vw",
-    margin: "auto",
-    display: "flex",
-    justifyContent: "flex-end",
-  }}
->
-  <div>
-    <a href="#Home">Back to top</a>
+<div id="Skills">
+  <div id="content">
+    {
+      skills.map((name) => {
+        return (
+          <div class="icon">
+            <StackIcon name={name} style={{ height: 58, width: 58 }} />
+          </div>
+        );
+      })
+    }
+  </div>
+  <div id="Bottom">
+    <div><a id="link" href="#Home">Back to top</a></div>
   </div>
 </div>
 <style>
   #Skills {
     width: 80vw;
     margin: auto;
-    display: flex;
-    justify-content: flex-end;
     padding-bottom: 100px;
   }
+  #Bottom {
+    display: flex;
+    justify-content: flex-end;
+  }
   #content {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(58px, 1fr)
+    ); /* Responsive columns */
+    gap: 16px; /* Minimum gap between each item */
+  }
+
+  .icon {
+    transition: transform 0.3s ease; /* Adding transition */
+  }
+  .icon:hover {
+    transform: scale(1.1);
   }
 </style>

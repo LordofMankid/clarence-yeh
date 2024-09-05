@@ -16,6 +16,7 @@ const projects = await Astro.glob("../pages/projects/*.md");
             subtitle={project.frontmatter.description}
             url={project.url}
             date={project.frontmatter.date}
+            techStack={project.frontmatter.techStack}
           />
         );
       })
