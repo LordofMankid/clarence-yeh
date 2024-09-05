@@ -1,6 +1,12 @@
 p {
   margin: 0
 }
+.card-link {
+  display: block; /* Make the <a> tag behave as a block element to ensure margins are respected */
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit text color from parent */
+  margin: 0; /* Ensure no extra margin is applied */
+}
 
 .card-container {
   display: flex;
@@ -11,6 +17,7 @@ p {
 .card-container:hover {
   transform: scale(1.1);
 }
+
 .image-container {
   aspect-ratio: 7 / 5;
   padding-bottom: 10%;

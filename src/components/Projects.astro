@@ -1,16 +1,25 @@
 ---
 import Card from "./Card";
 import SectionTitle from "./SectionTitle";
+const projects = await Astro.glob("../pages/projects/*.md");
 ---
 
 <div id="Projects">
   <SectionTitle title="PROJECTS" />
 
   <div id="content">
-    <Card title="placeholder" subtitle="placeholder 2" date="placeholder 3" />
-    <Card title="placeholder" subtitle="placeholder 2" date="placeholder 3" />
-    <Card title="placeholder" subtitle="placeholder 2" date="placeholder 3" />
-    <Card title="placeholder" subtitle="placeholder 2" date="placeholder 3" />
+    {
+      projects.map((project) => {
+        return (
+          <Card
+            title={project.frontmatter.title}
+            subtitle={project.frontmatter.description}
+            url={project.url}
+            date={project.frontmatter.date}
+          />
+        );
+      })
+    }
   </div>
 </div>
 
