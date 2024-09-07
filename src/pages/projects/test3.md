@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/ProjectLayout.astro
 title: "Fridgelink"
 description: "2023 TUFTS PRODUCTHON WINNER"
 date: "2023"
