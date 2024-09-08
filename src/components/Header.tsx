@@ -10,9 +10,9 @@ export default function Header(props: { currentPath: string }) {
     <nav>
       <ul>
         {navItems.map(({ path, label }) => (
-          <div style={{ width: 60, justifyContent: "center" }}>
+          <div style={{ width: 60, justifyContent: "center" }} key={path}>
             <div className={currentPath === path ? "active" : ""}></div>
-            <li key={path}>
+            <li>
               <a href={path}>
                 <p>{label}</p>
               </a>
