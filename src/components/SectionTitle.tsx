@@ -23,7 +23,7 @@ export default function SectionTitle(props: SectionTitleProps) {
   };
   return (
     <div style={styles.headerContainer}>
-      <div style={{ display: "flex", gap: 17 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 17 }}>
         <div style={styles.headerCircle} />
         <p>{title}</p>
       </div>

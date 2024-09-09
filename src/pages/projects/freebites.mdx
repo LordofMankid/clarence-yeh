@@ -4,9 +4,26 @@ title: "Freebites"
 description: "MOBILE APP DEVELOPMENT"
 date: "2023-2024"
 techStack: ["reactjs", "firebase", "github", "gcloud", "mongodb"]
+setup: |
+  import { Picture } from "astro-imagetools/components";
 ---
 import SectionTitle from "../../components/SectionTitle";
+import { Picture } from 'astro:assets';
 
-yay freebites
+<div> 
+<Picture className="project-hero-image" src="https://picsum.photos/1024/768" 
+  alt="picture"
+  width="700"
+  height="500"
+  pictureAttributes={{display: "block"}}
+  />
+</div>
+<SectionTitle title="Overview"/>
 
-<SectionTitle title="yes"/>
+<SectionTitle title="Background"/>
+
+## Hungry College Students
+
+It's kind of a given but to those not on the meal plan, the question remains: what the hell should I eat?
+
+<SectionTitle title="Process"/>

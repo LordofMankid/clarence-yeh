@@ -68,7 +68,6 @@ interface Props {
       p {
         font-size: 18px;
       }
-      p,
       a,
       h1,
       h2 {
@@ -95,6 +94,9 @@ interface Props {
         width: 100%;
         margin: 0 0 0 0;
         background-color: var(--blue-4);
+      }
+      body::-webkit-scrollbar {
+        display: none; /* WebKit browsers (Chrome, Safari) */
       }
     </style>
   </body>

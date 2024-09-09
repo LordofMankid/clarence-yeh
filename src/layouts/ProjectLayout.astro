@@ -1,85 +1,109 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import ProjectHeader from "../components/ProjectHeader";
-
+import "@fontsource-variable/inter";
 const { frontmatter } = Astro.props;
 ---
 
 <html>
+  <head>
+    <ViewTransitions />
+  </head>
   <!-- ... -->
-
-  <h1>{frontmatter.title}</h1>
-  <p>{frontmatter.description}</p>
-
-  <slot />
-  <!-- Markdown content is injected here -->
-  <!-- ... 
+  <body>
+    <div class="content-container">
+      <ProjectHeader client:load />
+      <h1>{frontmatter.title}</h1>
+      <slot />
+    </div>
+    <!-- Markdown content is injected here -->
+    <!-- ... 
    -->
 
-  <style is:global>
-    :root {
-      --air-superiority-blue: #80a1c1ff;
-      --vista-blue: rgb(114, 161, 229);
-      --vista-blue-light: rgba(114, 162, 229, 0.15);
-      --wisteria: rgb(176, 163, 212);
-      --tertiary: rgb(251, 252, 238);
-      --tertiary-background: rgb(251, 252, 238);
-      --tertiary-darker: rgba(183, 184, 173, 0.3);
-      --coral-pink: #ee9480ff;
-      --dark: rgb(48, 38, 32);
-      --secondary: #626267ff;
-      --secondary-transparent: rgba(98, 98, 103, 0.75);
-      --light: rgb(255, 255, 255, 0.9);
-      --grey: rgb(0, 0, 0, 0.4);
-      --accent: 136, 58, 234;
-      --accent-light: 224, 204, 250;
-      --accent-dark: 49, 10, 101;
-      --accent-gradient: linear-gradient(
-        45deg,
-        var(--dark),
-        var(--tertiary-background) 30%,
-        white 60%
-      );
-      --blue-1: #042373;
-      --blue-2: #3c67d5;
-      --blue-3: #7190e0;
-      --blue-7: #7394f684;
-      --blue-4: #eaf1ff;
-      --blue-5: #c7ebef;
-      --blue-6: #cddaf8;
-    }
-    p {
-      font-size: 18px;
-    }
-    p,
-    a,
-    h1,
-    h2 {
-      color: var(--dark);
-      text-decoration: none;
-      margin: 0 auto;
-    }
-    h2 {
-      font-size: 47px;
-    }
+    <style is:global>
+      :root {
+        --air-superiority-blue: #80a1c1ff;
+        --vista-blue: rgb(114, 161, 229);
+        --vista-blue-light: rgba(114, 162, 229, 0.15);
+        --wisteria: rgb(176, 163, 212);
+        --tertiary: rgb(251, 252, 238);
+        --tertiary-background: rgb(251, 252, 238);
+        --tertiary-darker: rgba(183, 184, 173, 0.3);
+        --coral-pink: #ee9480ff;
+        --dark: rgb(48, 38, 32);
+        --secondary: #626267ff;
+        --secondary-transparent: rgba(98, 98, 103, 0.75);
+        --light: rgb(255, 255, 255, 0.9);
+        --grey: rgb(0, 0, 0, 0.4);
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+          45deg,
+          var(--dark),
+          var(--tertiary-background) 30%,
+          white 60%
+        );
+        --blue-1: #042373;
+        --blue-2: #3c67d5;
+        --blue-3: #7190e0;
+        --blue-7: #7394f684;
+        --blue-4: #eaf1ff;
+        --blue-5: #c7ebef;
+        --blue-6: #cddaf8;
+      }
+      p {
+        font-size: 18px;
+      }
+      h1 {
+        font-size: 42px;
+        font-weight: 400;
+      }
+      h2 {
+        font-size: 24px;
+        font-weight: 500;
+        margin: 0;
+      }
+      h3 {
+        font-size: 20px;
+      }
 
-    code {
-      font-family:
-        Menlo,
-        Monaco,
-        Lucida Console,
-        Liberation Mono,
-        DejaVu Sans Mono,
-        Bitstream Vera Sans Mono,
-        Courier New,
-        monospace;
-    }
-    body {
-      font-family: "Inter Variable";
-      width: 100%;
-      margin: 0 0 0 0;
-      background-color: var(--blue-4);
-    }
-  </style>
+      a,
+      h1,
+      h2 {
+        color: var(--dark);
+        text-decoration: none;
+        margin: 0 auto;
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+      body {
+        font-family: "Inter Variable";
+        width: 100%;
+        margin: 0 0 0 0;
+        background-color: var(--blue-4);
+      }
 
-
+      .content-container {
+        width: 80vw;
+        margin: 0 auto; /* To center the content */
+        margin-bottom: 100px;
+      }
+      .project-hero-image {
+        border-radius: 20px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </body>
 </html>

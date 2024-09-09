@@ -1,0 +1,23 @@
+.project-back-button-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0px;
+  width: 270px;
+  height: 71px;
+  border-radius: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 20px var(--blue-3);
+  -webkit-box-shadow: 0px 0px 10px 0px var(--blue-3);
+  -moz-box-shadow: 0px 0px 20px var(--blue-3);
+   /* Add transition */
+   margin-bottom: 63px;
+   transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-back-button-container:hover  {
+  background-color: var(--blue-4);
+  box-shadow: 0px 0px 75px 1px var(--blue-3);
+  -webkit-box-shadow: 0px 0px 30px 2px var(--blue-3);
+  -moz-box-shadow: 0px 0px 75px 1px var(--blue-3);
+}
