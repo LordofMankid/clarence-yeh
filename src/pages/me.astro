@@ -1,27 +1,91 @@
 ---
-import ResumePart from "../components/ResumePart.astro";
+import ResumeItem from "../components/ResumeItem.astro";
 import SectionTitle from "../components/SectionTitle";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="world">
   <div class="experience-container">
-    <SectionTitle title="EXPERIENCE" />
-    <div class="resume">
-      <ResumePart date="hi" title="hi" organization="hi" description="hi" />
+    <SectionTitle title="EXPERIENCE" notBlock={true} />
+    <div class="resume-container">
+      <ResumeItem
+        date="JULY 2023 - PRESENT"
+        title="Tech Lead"
+        organization="Freebites"
+      >
+        Led the development of a React Native app aimed to reduce food waste on
+        college campuses. <br /> Mentored 6 new programmers through onboarding, creating
+        a Git workflow, leading React Native workshops, and extensive code review.
+      </ResumeItem>
+      <ResumeItem
+        date="MAY 2024 - PRESENT"
+        title="Tech Lead"
+        organization="JumboCode: English At Large"
+      >
+        Leading the development of a Next.js/PostgreSQL library webapp to serve
+        immigrant communities in the Greater Boston Area. <br />
+      </ResumeItem>
+      <ResumeItem
+        date="MAY - AUG 2024"
+        title="Software Engineer Intern"
+        organization="Markit Social"
+      >
+        Developed React/React Native full stack software solutions for Markit,
+        such as user data export features and developing + launching new landing
+        and explore pages for the web app. <br />
+        <br />Performed critical updates to the app's infrastructure, such as
+        updating and migrating to new notification and authentication services
+        for its 100,000 users.
+      </ResumeItem>
+      <ResumeItem
+        date="SEP 2023 - JUNE 2024"
+        title="Full Stack Developer"
+        organization="Tufts JumboCode"
+      >
+        Worked on a team of 13 student to develop a website-building platform
+        for Keep Mass Beautiful, a 40+ chapter statewide environmental
+        non-profit.
+      </ResumeItem>
     </div>
   </div>
+
+  <hr class="divider" />
+  <!-- <div class="me-container">
+    <SectionTitle title="MY CURRENT OBSESSIONS :)" notBlock={true} />
+  </div> -->
 </Layout>
 
 <style>
   .experience-container {
-    display: "flex";
-    width: "80vw";
+    display: flex;
+    width: 80vw;
+    align-items: flex-start;
     justify-content: space-between;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 130px;
   }
-  .resume {
-    display: grid;
-    grid-template-columns: 2fr 5fr; /* 2:5 ratio */
-    gap: 76px; /* Optional: space between columns */
+
+  .me-container {
+    display: flex;
+    width: 80vw;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: auto;
+    margin-bottom: 80px;
+  }
+  .resume-container {
+    display: flex;
+    flex-direction: column;
+    flex: 6;
+    gap: 48px;
+  }
+  .divider {
+    border: none;
+    height: 1px;
+    width: 78vw;
+    background-color: #d9e3ff;
+    margin-block: 60px;
   }
 </style>

@@ -1,15 +1,17 @@
 interface SectionTitleProps {
   title: string;
+  notBlock?: boolean;
 }
 export default function SectionTitle(props: SectionTitleProps) {
-  const { title } = props;
+  const { title, notBlock = false } = props;
 
   const styles = {
     headerContainer: {
-      margin: "auto",
-      marginBlock: 50,
-      width: "80vw",
+      margin: notBlock ? null : "auto",
+      marginBlock: notBlock ? 0 : 50,
+      width: notBlock ? null : "80vw",
       display: "flex",
+      flex: notBlock ? 4 : null,
     },
     headerCircle: {
       height: 18,
@@ -23,9 +25,15 @@ export default function SectionTitle(props: SectionTitleProps) {
   };
   return (
     <div style={styles.headerContainer}>
-      <div style={{ display: "flex", alignItems: "center", gap: 17 }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: notBlock ? "flex-start" : "center",
+          gap: 17,
+        }}
+      >
         <div style={styles.headerCircle} />
-        <p>{title}</p>
+        <p style={{ margin: 0 }}>{title}</p>
       </div>
     </div>
   );

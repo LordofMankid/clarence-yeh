@@ -3,38 +3,40 @@ interface Props {
   date: string;
   title: string;
   organization: string;
-  description: string;
 }
 
-const { date, title, organization, description } = Astro.props;
+const { date, title, organization } = Astro.props;
 ---
 
 <div class="container">
-  <div class="date">{date}</div>
+  <div class="description date">{date}</div>
   <div class="details">
     <div class="title">{title} • {organization}</div>
-    <div class="description">{description}</div>
+    <div class="description"><slot /></div>
   </div>
 </div>
 
 <style>
   .container {
     display: flex;
+    align-items: flex-start;
     gap: 76px;
     flex-direction: row;
   }
   .date {
-    background-color: red;
-    flex: 2;
+    flex: 3;
   }
   .details {
     display: flex;
     flex-direction: column;
-    background-color: blue;
-    flex: 5;
+    flex: 7;
+    gap: 14px;
   }
   .title {
+    font-size: 20px;
   }
   .description {
+    font-size: 16px;
+    color: #727272;
   }
 </style>
