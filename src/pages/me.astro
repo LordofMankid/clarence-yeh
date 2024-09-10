@@ -1,5 +1,27 @@
 ---
+import ResumePart from "../components/ResumePart.astro";
+import SectionTitle from "../components/SectionTitle";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="world" />
+<Layout title="world">
+  <div class="experience-container">
+    <SectionTitle title="EXPERIENCE" />
+    <div class="resume">
+      <ResumePart date="hi" title="hi" organization="hi" description="hi" />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .experience-container {
+    display: "flex";
+    width: "80vw";
+    justify-content: space-between;
+  }
+  .resume {
+    display: grid;
+    grid-template-columns: 2fr 5fr; /* 2:5 ratio */
+    gap: 76px; /* Optional: space between columns */
+  }
+</style>
