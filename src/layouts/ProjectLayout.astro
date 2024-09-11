@@ -11,9 +11,11 @@ const { frontmatter } = Astro.props;
   </head>
   <!-- ... -->
   <body>
-    <div class="content-container">
+    <div class="project-header-container">
       <ProjectHeader client:load />
-      <h1>{frontmatter.title}</h1>
+    </div>
+    <div class="content-container">
+      <h1 class="project-header">{frontmatter.title}</h1>
       <slot />
     </div>
     <!-- Markdown content is injected here -->
@@ -52,8 +54,23 @@ const { frontmatter } = Astro.props;
         --blue-5: #c7ebef;
         --blue-6: #cddaf8;
       }
-      p {
-        font-size: 18px;
+
+      .content-container :is(p, h2, ul, li) {
+        width: 40vw;
+        margin: 0 auto;
+      }
+      .content-container :is(h2) {
+        font-size: 20px;
+        font-weight: 500;
+        margin-block: 10px;
+      }
+      .content-container :is(ul) {
+        width: 40vw;
+        padding-left: 4rem;
+        margin-block: 10px;
+      }
+      .content-container :is(a) {
+        text-decoration: underline;
       }
       h1 {
         font-size: 42px;
@@ -93,8 +110,12 @@ const { frontmatter } = Astro.props;
         background-color: var(--blue-4);
       }
 
-      .content-container {
+      .project-header-container {
         width: 80vw;
+        margin: 0 auto;
+      }
+      .content-container {
+        width: 60vw;
         margin: 0 auto; /* To center the content */
         margin-bottom: 100px;
       }
@@ -103,6 +124,9 @@ const { frontmatter } = Astro.props;
         height: auto;
         display: block;
         margin: 0 auto;
+      }
+      .project-header {
+        margin-block: 50px;
       }
     </style>
   </body>

@@ -8,7 +8,14 @@ export default {
             options: {
                 parser: 'astro',
             },
+
         },
+        {
+            files: '*.mdx',
+            options: {
+                parser: 'mdx'
+            },
+        }
     ],
     arrowParens: "always",
     bracketSpacing: true,

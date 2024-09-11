@@ -7,11 +7,11 @@ export default function SectionTitle(props: SectionTitleProps) {
 
   const styles = {
     headerContainer: {
-      margin: notBlock ? null : "auto",
+      margin: notBlock ? undefined : "auto",
       marginBlock: notBlock ? 0 : 50,
-      width: notBlock ? null : "80vw",
+      width: notBlock ? undefined : "80vw",
       display: "flex",
-      flex: notBlock ? 4 : null,
+      flex: notBlock ? 4 : undefined,
     },
     headerCircle: {
       height: 18,
