@@ -4,7 +4,7 @@ export default function Header(props: { currentPath: string }) {
   const { currentPath } = props;
   const navItems = [
     { path: "/", label: "Work" },
-    { path: "/me", label: "Resume" },
+    { path: "/me", label: "Me" },
   ];
   return (
     <nav>

@@ -1,0 +1,27 @@
+---
+layout: ../../layouts/ProjectLayout.astro
+title: "Fridgelink"
+description: "2023 TUFTS PRODUCTHON WINNER"
+date: "2023"
+techStack: ["reactjs", "firebase", "github"]
+---
+
+import SectionTitle from "../../components/SectionTitle";
+import { Image } from "astro:assets";
+import Fridgelink1 from "../../assets/fridgelink/fridgelink1.png";
+import Fridgelink2 from "../../assets/fridgelink/fridgelink2.png";
+import Fridgelink3 from "../../assets/fridgelink/fridgelink3.png";
+
+<div className="project-hero-image-container">
+  <Image src={Fridgelink1} alt={"image"} className="project-hero-image" />
+  <Image src={Fridgelink2} alt={"image"} className="project-hero-image" />
+  <Image src={Fridgelink3} alt={"image"} className="project-hero-image" />
+</div>
+
+[click here to check out more about our process!](https://devpost.com/software/myvoterinfo)
+
+<SectionTitle title="OVERVIEW" />
+
+Entered Tufts' Product Studio's Fall 2023 Producthon with my friend Jeffrey,
+Andrew, and Shannon. Made a fun little MVP fridge tracking system to help reduce
+food waste.

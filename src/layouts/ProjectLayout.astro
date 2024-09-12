@@ -114,6 +114,12 @@ const { frontmatter } = Astro.props;
         width: 80vw;
         margin: 0 auto;
       }
+      .project-hero-image-container {
+        display: flex;
+        max-height: 500;
+        max-width: 80vw;
+        margin-block: 50px;
+      }
       .content-container {
         width: 60vw;
         margin: 0 auto; /* To center the content */
@@ -124,9 +130,8 @@ const { frontmatter } = Astro.props;
         height: auto;
         display: block;
         margin: 0 auto;
-      }
-      .project-header {
-        margin-block: 50px;
+        max-height: 500px;
+        width: auto;
       }
     </style>
   </body>

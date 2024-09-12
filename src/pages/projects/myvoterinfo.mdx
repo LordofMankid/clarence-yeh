@@ -1,0 +1,37 @@
+---
+layout: ../../layouts/ProjectLayout.astro
+title: "MyVoterInfo"
+description: "A hackathon-winning app to check for voter registrations"
+date: "2024"
+techStack: ["reactjs", "firebase", "github", "gcloud"]
+---
+
+import SectionTitle from "../../components/SectionTitle";
+import { Image } from "astro:assets";
+import Fridgelink1 from "../../assets/fridgelink/fridgelink1.png";
+import Fridgelink2 from "../../assets/fridgelink/fridgelink2.png";
+import Fridgelink3 from "../../assets/fridgelink/fridgelink3.png";
+
+<div className="project-hero-image-container">
+  <Image src={Fridgelink1} alt={"image"} className="project-hero-image" />
+  <Image src={Fridgelink2} alt={"image"} className="project-hero-image" />
+  <Image src={Fridgelink3} alt={"image"} className="project-hero-image" />
+</div>
+
+[click here to check this out!](https://keep-mass-beautiful.vercel.app/Demo)
+
+<SectionTitle title="OVERVIEW" />
+
+Tufts JumboCode held its first hackathon in five years, and I worked together with
+my friends Jessie, Lydia, and Yihui to compete. When we talked about problems that
+we wanted to solve, with an election coming up, we realized that there is a significant
+barrier to entry in many states across the United States, namely the issue of
+voter registrations -- many people get deregistered without being aware. So
+we created the MVP of an app that would tell you if you were ever deregistered.
+
+<SectionTitle title="MY INVOLVEMENT" />
+
+I created the authentication system through Firebase, as well as a screen on the
+app where users can see relevant election information in their area, such as
+polling places and their operation hours. I also created a way for users to report
+waiting times to inform other users on the best polling places to go to.
