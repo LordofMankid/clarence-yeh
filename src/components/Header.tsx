@@ -6,7 +6,7 @@ export default function Header(props: { currentPath: string }) {
   ];
   return (
     <nav className="flex justify-center mt-12 relative">
-      <ul className="flex justify-center items-center p-0 w-64 h-16 rounded-3xl gap-4">
+      <ul className="flex justify-center items-center p-0 w-64 h-16 rounded-3xl bg-white gap-4">
         {navItems.map(({ path, label }) => (
           <div className="flex justify-center w-16" key={path}>
             <div
