@@ -21,6 +21,16 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+      - name: Debug environment variables
+        run: |
+          echo "Repository variable: ${{ vars.PUBLIC_CLOUDINARY_CLOUD_NAME }}"
+          echo "Environment variable: $PUBLIC_CLOUDINARY_CLOUD_NAME"
+          echo "All environment variables with CLOUDINARY:"
+          printenv | grep -i cloudinary || echo "No CLOUDINARY variables found"
+          echo "All vars context variables:"
+          echo "PUBLIC_CLOUDINARY_CLOUD_NAME from vars: ${{ vars.PUBLIC_CLOUDINARY_CLOUD_NAME }}"
+        env:
+          PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ vars.PUBLIC_CLOUDINARY_CLOUD_NAME }}
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         env:
