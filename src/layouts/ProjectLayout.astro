@@ -2,6 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import ProjectHeader from "../components/ProjectHeader";
 import "@fontsource-variable/inter";
+import "../styles/global.css";
 const { frontmatter } = Astro.props;
 ---
 
@@ -9,122 +10,84 @@ const { frontmatter } = Astro.props;
   <head>
     <ViewTransitions />
   </head>
-  <!-- ... -->
-  <body>
-    <div class="project-header-container">
+  <body class="font-inter w-full m-0 bg-blue-4">
+    <div class="mx-auto" style="width: 80vw;">
       <ProjectHeader client:load />
     </div>
-    <div class="content-container">
-      <h1 class="project-header">{frontmatter.title}</h1>
+
+    <div class="mx-auto" style="width: 60vw; margin-bottom: 100px;">
+      <h1 class="text-42 font-normal text-dark mx-auto">{frontmatter.title}</h1>
       <slot />
     </div>
-    <!-- Markdown content is injected here -->
-    <!-- ... 
-   -->
 
     <style is:global>
-      :root {
-        --air-superiority-blue: #80a1c1ff;
-        --vista-blue: rgb(114, 161, 229);
-        --vista-blue-light: rgba(114, 162, 229, 0.15);
-        --wisteria: rgb(176, 163, 212);
-        --tertiary: rgb(251, 252, 238);
-        --tertiary-background: rgb(251, 252, 238);
-        --tertiary-darker: rgba(183, 184, 173, 0.3);
-        --coral-pink: #ee9480ff;
-        --dark: rgb(48, 38, 32);
-        --secondary: #626267ff;
-        --secondary-transparent: rgba(98, 98, 103, 0.75);
-        --light: rgb(255, 255, 255, 0.9);
-        --grey: rgb(0, 0, 0, 0.4);
-        --accent: 136, 58, 234;
-        --accent-light: 224, 204, 250;
-        --accent-dark: 49, 10, 101;
-        --accent-gradient: linear-gradient(
-          45deg,
-          var(--dark),
-          var(--tertiary-background) 30%,
-          white 60%
-        );
-        --blue-1: #042373;
-        --blue-2: #3c67d5;
-        --blue-3: #7190e0;
-        --blue-7: #7394f684;
-        --blue-4: #eaf1ff;
-        --blue-5: #c7ebef;
-        --blue-6: #cddaf8;
-      }
-
+      /* Content-specific styles for MDX content */
       .content-container :is(p, h2, ul, li) {
         width: 40vw;
         margin: 0 auto;
       }
-      .content-container :is(h2) {
+
+      .content-container h2 {
         font-size: 20px;
         font-weight: 500;
         margin-block: 10px;
       }
-      .content-container :is(ul) {
+
+      .content-container ul {
         width: 40vw;
         padding-left: 4rem;
         margin-block: 10px;
       }
-      .content-container :is(a) {
+
+      .content-container a {
         text-decoration: underline;
       }
+
+      /* Global typography */
       h1 {
         font-size: 42px;
         font-weight: 400;
+        color: var(--dark, #302620);
+        margin: 0 auto;
       }
+
       h2 {
-        font-size: 24px;
+        font-size: 47px;
         font-weight: 500;
-        margin: 0;
+        color: var(--dark, #302620);
+        margin: 0 auto;
       }
+
       h3 {
         font-size: 20px;
+      }
+
+      p {
+        font-size: 18px;
       }
 
       a,
       h1,
       h2 {
-        color: var(--dark);
+        color: var(--dark, #302620);
         text-decoration: none;
         margin: 0 auto;
       }
+
       code {
-        font-family:
-          Menlo,
-          Monaco,
-          Lucida Console,
-          Liberation Mono,
-          DejaVu Sans Mono,
-          Bitstream Vera Sans Mono,
-          Courier New,
+        font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono",
+          "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New",
           monospace;
       }
-      body {
-        font-family: "Inter Variable";
-        width: 100%;
-        margin: 0 0 0 0;
-        background-color: var(--blue-4);
-      }
 
-      .project-header-container {
-        width: 80vw;
-        margin: 0 auto;
-      }
+      /* Project-specific image styles */
       .project-hero-image-container {
         display: flex;
-        max-height: 500;
+        max-height: 500px;
         max-width: 80vw;
         margin-block: 50px;
       }
-      .content-container {
-        width: 60vw;
-        margin: 0 auto; /* To center the content */
-        margin-bottom: 100px;
-      }
+
       .project-hero-image {
         border-radius: 20px;
         height: auto;
@@ -132,6 +95,12 @@ const { frontmatter } = Astro.props;
         margin: 0 auto;
         max-height: 500px;
         width: auto;
+      }
+
+      /* Add the color variables temporarily */
+      :root {
+        --dark: #302620;
+        --blue-4: #eaf1ff;
       }
     </style>
   </body>

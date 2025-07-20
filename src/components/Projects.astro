@@ -1,7 +1,14 @@
 ---
 import Card from "./Card.astro";
 import SectionTitle from "./SectionTitle";
-const projects = await Astro.glob("../pages/projects/*.mdx");
+
+const projects: Record<string, ProjectModule> = import.meta.glob(
+  "../pages/projects/*.mdx",
+  {
+    eager: true,
+  }
+);
+const projectList = Object.values(projects);
 ---
 
 <div id="Projects">
@@ -9,7 +16,7 @@ const projects = await Astro.glob("../pages/projects/*.mdx");
 
   <div id="content">
     {
-      projects.map((project) => {
+      projectList.map((project) => {
         return (
           <Card
             title={project.frontmatter.title}
