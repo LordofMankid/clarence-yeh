@@ -9,7 +9,6 @@ export default defineConfig({
   image: {
     remotePatterns: [{ protocol: "https" }]
   },
-
   integrations: [icon(), react({ experimentalReactChildren: true }), mdx()],
 
   vite: {

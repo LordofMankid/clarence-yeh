@@ -1,14 +1,10 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import Card from "./Card.astro";
 import SectionTitle from "./SectionTitle";
-
-const projects: Record<string, ProjectModule> = import.meta.glob(
-  "../pages/projects/*.mdx",
-  {
-    eager: true,
-  }
-);
-const projectList = Object.values(projects);
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
+// const projectList = Object.values(projects);
 ---
 
 <div id="Projects">
@@ -16,14 +12,14 @@ const projectList = Object.values(projects);
 
   <div id="content">
     {
-      projectList.map((project) => {
+      projects.map((project) => {
         return (
           <Card
-            title={project.frontmatter.title}
-            subtitle={project.frontmatter.description}
-            url={project.url}
-            date={project.frontmatter.date}
-            techStack={project.frontmatter.techStack}
+            title={project.data.title}
+            subtitle={project.data.description}
+            date={project.data.date}
+            techStack={project.data.techStack}
+            url={`/projects/${project.id}`}
           />
         );
       })

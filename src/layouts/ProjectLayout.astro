@@ -1,22 +1,24 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import ProjectHeader from "../components/ProjectHeader";
 import "@fontsource-variable/inter";
 import "../styles/global.css";
-const { frontmatter } = Astro.props;
+import { CldImage } from "astro-cloudinary";
 ---
 
 <html>
-  <head>
-    <ViewTransitions />
-  </head>
+  <head> </head>
   <body class="font-inter w-full m-0 bg-blue-4">
     <div class="mx-auto" style="width: 80vw;">
       <ProjectHeader client:load />
     </div>
-
+    <CldImage
+      src="bear_grylls_wmxm8u"
+      width={1200}
+      height={800}
+      alt="<Description>"
+    />
     <div class="mx-auto" style="width: 60vw; margin-bottom: 100px;">
-      <h1 class="text-42 font-normal text-dark mx-auto">{frontmatter.title}</h1>
+      <!-- <h1 class="text-42 font-normal text-dark mx-auto">{frontmatter.title}</h1> -->
       <slot />
     </div>
 
