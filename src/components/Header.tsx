@@ -1,5 +1,3 @@
-import "../styles/Navbar.scss";
-
 export default function Header(props: { currentPath: string }) {
   const { currentPath } = props;
   const navItems = [
@@ -7,14 +5,16 @@ export default function Header(props: { currentPath: string }) {
     { path: "/me", label: "Me" },
   ];
   return (
-    <nav>
-      <ul>
+    <nav className="flex justify-center mt-12 relative">
+      <ul className="flex justify-center items-center p-0 w-64 h-16 rounded-3xl gap-4">
         {navItems.map(({ path, label }) => (
-          <div style={{ width: 60, justifyContent: "center" }} key={path}>
-            <div className={currentPath === path ? "active" : ""}></div>
+          <div className="flex justify-center w-16" key={path}>
+            <div
+              className={`${currentPath === path ? "absolute top-4 h-0.5 w-16 bg-blue-3" : ""}`}
+            />
             <li>
               <a href={path}>
-                <p>{label}</p>
+                <p className="text-blue-1 text-xl">{label}</p>
               </a>
             </li>
           </div>

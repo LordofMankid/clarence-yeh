@@ -1,5 +1,4 @@
 ---
-import "../styles/Card.scss";
 import { Icon } from "astro-icon/components";
 
 interface Props {
@@ -28,15 +27,19 @@ const styles = {
 };
 ---
 
-<a href={url} class="card-link">
-  <div class="card-container">
-    <div class="image-container">
-      <div class="tech-stack">
+<a href={url} class="block no-underline text-inherit">
+  <div
+    class="flex flex-col transition-transform duration-300 ease-in-out hover:scale-110"
+  >
+    <div
+      class="relative aspect-[8/5] pb-[10%] rounded-[40px] bg-blue-3 shadow-[0px_10px_15px_var(--blue-7)]"
+    >
+      <div class="flex justify-end gap-0.5 h-5 mt-6 mx-12">
         {techStack ? techStack.map((skill) => <Icon name={skill} />) : null}
       </div>
     </div>
-    <div class="text-container">
-      <div class="header-container">
+    <div class="flex flex-col gap-1">
+      <div class="flex justify-between mt-5">
         <p style={styles.headerText}>{title}</p>
         <p style={styles.dateText}>{date}</p>
       </div>

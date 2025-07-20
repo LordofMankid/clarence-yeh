@@ -20,7 +20,7 @@ export default {
           4: '#eaf1ff',
           5: '#c7ebef',
           6: '#cddaf8',
-          7: '#7394f684'
+          7: '#7394f6'
         }
       },
       fontFamily: {

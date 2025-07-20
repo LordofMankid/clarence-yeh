@@ -4,11 +4,24 @@
 @layer base {
   /* Apply prose styles to main content areas */
   main, article {
+
     @apply prose dark:prose-invert max-w-none;
-    @apply prose-h1:font-normal prose-h1:text-4xl prose-h1:mx-auto prose-h1:no-underline;
-    @apply prose-h2:font-medium prose-h2:text-5xl prose-h2:mx-auto prose-h2:no-underline;
-    @apply prose-p:text-lg prose-p:no-underline
+    @apply prose-h1:font-normal prose-h1:text-4xl prose-h1:mx-auto prose-h1:no-underline prose-h1:m-0;
+    @apply prose-h2:font-medium prose-h2:text-5xl prose-h2:mx-auto prose-h2:no-underline prose-h2:m-0;
+    @apply prose-h3:m-0;
+    @apply prose-p:text-lg prose-p:no-underline prose-p:m-0
   }
 
   
+}
+
+@theme {
+   /* blue */
+   --color-blue-1: oklch(30.04% 0.1414 263.41);
+   --color-blue-2: oklch(54.48% 0.1761 264.98);
+   --color-blue-3: oklch(66.44% 0.1245 266.96);
+   --color-blue-4: oklch(95.70% 0.0203 264.47);
+   --color-blue-5: oklch(91.56% 0.0379 204.74);
+   --color-blue-6: oklch(88.80% 0.0437 266.88);
+   --color-blue-7: oklch(68.58% 0.1493 268.26);
 }
