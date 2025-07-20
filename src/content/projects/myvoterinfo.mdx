@@ -3,6 +3,7 @@ title: "MyVoterInfo"
 description: "A hackathon-winning app to check for voter registrations"
 date: "2024"
 techStack: ["reactjs", "firebase", "github", "gcloud"]
+image: "17087130827741_mkni0s"
 ---
 
 import SectionTitle from "../../components/SectionTitle";
@@ -10,7 +11,18 @@ import { Image } from "astro:assets";
 import Fridgelink1 from "../../assets/fridgelink/fridgelink1.png";
 import Fridgelink2 from "../../assets/fridgelink/fridgelink2.png";
 import Fridgelink3 from "../../assets/fridgelink/fridgelink3.png";
+import { CldImage } from "astro-cloudinary";
 
+<div className="flex w-full justify-center">
+  <CldImage
+    src="17087130827741_mkni0s"
+    crop={{
+      type: "fill",
+      source: true,
+    }}
+    class="rounded-2xl"
+  />
+</div>
 <div className="project-hero-image-container">
   <Image src={Fridgelink1} alt={"image"} className="project-hero-image" />
   <Image src={Fridgelink2} alt={"image"} className="project-hero-image" />
