@@ -1,4 +1,15 @@
-<img id="container" src="src/assets/profilePic.jpg" />
+---
+import { Image } from "astro:assets";
+import profilePic from "../../assets/profilePic.jpg";
+---
+
+<Image
+  id="container"
+  src={profilePic}
+  alt="Profile picture"
+  width={130}
+  height={130}
+/>
 
 <style>
   #container {
