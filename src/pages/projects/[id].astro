@@ -2,6 +2,7 @@
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
 import type { Project } from "../../content.config";
+import ProjectProse from "../../components/styling/ProjectProse.astro";
 
 // Generate routes for each project
 export async function getStaticPaths() {
@@ -20,7 +21,6 @@ const { Content } = await render(project);
   title={project.data.title}
   description={project.data.description}
 >
-  <h1>{project.data.title}</h1>
   <!-- 
   {
     project.data.tags && (
@@ -31,6 +31,8 @@ const { Content } = await render(project);
       </div>
     )
   } -->
-
-  <Content />
+  <ProjectProse>
+    <h1>{project.data.title}</h1>
+    <Content />
+  </ProjectProse>
 </ProjectLayout>
