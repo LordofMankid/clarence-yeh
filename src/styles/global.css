@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";  
+
+@layer base {
+  /* Apply prose styles to main content areas */
+  main, article {
+    @apply prose dark:prose-invert max-w-none;
+    @apply prose-h1:font-normal prose-h1:text-4xl prose-h1:mx-auto prose-h1:no-underline;
+    @apply prose-h2:font-medium prose-h2:text-5xl prose-h2:mx-auto prose-h2:no-underline;
+    @apply prose-p:text-lg prose-p:no-underline
+  }
+
+  
+}

@@ -2,7 +2,6 @@
 import "@fontsource-variable/inter";
 import "../styles/global.css";
 import Header from "../components/Header";
-import { ViewTransitions } from "astro:transitions";
 const currentPath = Astro.url.pathname;
 interface Props {
   title: string;
@@ -22,22 +21,23 @@ interface Props {
     <title>Clarence Yeh | Software Engineer</title>
     <script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js"
     ></script>
-    <ViewTransitions />
   </head>
-  <body class="font-inter w-full m-0 bg-blue-4 overflow-x-hidden">
+  <body class="font-inter w-full m-0 bg-blue-4" style="overflow-x: hidden;">
     <Header currentPath={currentPath} />
-    <slot />
+    <main>
+      <slot />
 
-    <style is:global>
-      /* Hide scrollbar for webkit browsers */
-      body::-webkit-scrollbar {
-        display: none;
-      }
-      /* Hide scrollbar for IE, Edge and Firefox */
-      body {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
+      <style is:global>
+        /* Hide scrollbar for webkit browsers */
+        body::-webkit-scrollbar {
+          display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        body {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      </style>
+    </main>
   </body>
 </html>
