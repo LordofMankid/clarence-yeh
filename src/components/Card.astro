@@ -43,17 +43,15 @@ const styles = {
     class="flex flex-col transition-transform duration-300 ease-in-out hover:scale-110"
   >
     <div
-      class="relative aspect-[8/5] pb-[10%] rounded-[40px] bg-white shadow-[0px_10px_15px_var(--blue-7)] overflow-hidden"
+      class="relative aspect-[16/9] rounded-[40px] bg-white shadow-[0px_10px_15px_var(--blue-7)] overflow-hidden"
     >
       {
         imageSrc ? (
           <CldImage
             src={imageSrc}
-            crop={{
-              type: "fill",
-              source: true,
-            }}
-            class={`absolute inset-0 w-full h-full object-left-top p-0 m-0 ${altImagePosition}`}
+            width={800}
+            height={500}
+            class={`absolute inset-0 w-full h-full object-cover p-0 m-0 ${altImagePosition}`}
           />
         ) : (
           <CldImage
@@ -66,7 +64,7 @@ const styles = {
           />
         )
       }
-      <div class="flex justify-end gap-0.5 h-5 mt-6 mx-12">
+      <div class="absolute top-6 right-8 flex gap-0.5 z-10">
         {techStack ? techStack.map((skill) => <Icon name={skill} />) : null}
       </div>
     </div>

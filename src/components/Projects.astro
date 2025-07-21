@@ -7,10 +7,12 @@ const projects = await getCollection("projects");
 // const projectList = Object.values(projects);
 ---
 
-<div id="Projects">
+<div class="min-h-full">
   <SectionTitle title="PROJECTS" />
 
-  <div id="content">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 sm:gap-16 lg:gap-28 w-[80vw] m-auto"
+  >
     {
       projects.map((project) => {
         return (
@@ -29,10 +31,6 @@ const projects = await getCollection("projects");
 </div>
 
 <style>
-  #Projects {
-    min-height: 90vh;
-  }
-
   #content {
     width: 80vw;
     margin: auto;
