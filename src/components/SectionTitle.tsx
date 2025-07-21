@@ -32,7 +32,9 @@ export default function SectionTitle(props: SectionTitleProps) {
           gap: 17,
         }}
       >
-        <div style={styles.headerCircle} />
+        <div
+          className={`h-4 w-4 rounded-lg bg-blue-2 ${notBlock ? "mt-1.5" : false}`}
+        />
         <p style={{ margin: 0 }}>{title}</p>
       </div>
     </div>
