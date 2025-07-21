@@ -1,18 +1,19 @@
 ---
+const { title, subtitle } = Astro.props;
 import LinkIcons from "./index/LinkIcons.astro";
 import ProfileIcon from "./index/ProfileIcon.astro";
 ---
 
 <div id="Home">
-  <div id="content">
+  <div class="w-[80vw] m-auto pt-14">
     <ProfileIcon />
     <div>
-      <h2>Hey there, I'm Clarence Yeh</h2>
+      <h2>{title}</h2>
     </div>
 
-    <div id="blurb">
+    <div class="flex flex-row justify-between w-full mt-2">
       <div>
-        <p>I'M A CO-FOUNDER AND CTO OF FREEBITES, FORMERLY AT MARKIT AI</p>
+        <p>{subtitle}</p>
       </div>
 
       <LinkIcons />
@@ -21,34 +22,8 @@ import ProfileIcon from "./index/ProfileIcon.astro";
 </div>
 
 <style>
-  #Home {
-  }
-
-  #content {
-    width: 80vw;
-    margin: auto;
-    padding-top: 60px;
-  }
-
-  #description {
-    width: 200px;
-    margin: auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
   #fun-content {
     flex-direction: column;
-  }
-
-  #blurb {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 100%;
-    margin-top: 10px;
   }
 
   @media screen and (min-width: 768px) {

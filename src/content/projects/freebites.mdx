@@ -8,21 +8,22 @@ image: "FreebitesLogoThumbnail_jeia2r"
 
 import SectionTitle from "../../components/SectionTitle";
 import { Picture } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 
-<Picture
-  className="project-hero-image"
-  src="https://picsum.photos/1024/768"
-  alt="picture"
-  width="700"
-  height="500"
+<CldImage
+  src="FreebitesLogoThumbnail_jeia2r"
+  width={800}
+  height={500}
+  class="m-auto rounded-4xl"
 />
 
 <SectionTitle title="Overview" />
 
 This is a mobile app using Expo and React Native app that allows users to take
-pictures of free food opportunities on campus. We're currently in the final
-stages of Testflight right now, but we'll be releasing on the App Store soon.
-Android support will follow soon :)
+pictures of free food opportunities on campus. We have 1000+ users on our home
+campus of Tufts University, and we have plans to expand in several new schools in
+the Boston Area, like Harvard and Northeastern. Check us out on our [website](https://www.freebites.org)
+and on the [App Store](https://apps.apple.com/us/app/freebites/id6664051907)!
 
 <SectionTitle title="Background" />
 

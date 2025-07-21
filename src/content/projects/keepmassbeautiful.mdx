@@ -8,16 +8,14 @@ image: "KmbThumbnail_ezbuzj"
 
 import SectionTitle from "../../components/SectionTitle";
 import { Picture } from "astro:assets";
+import { CldImage } from "astro-cloudinary";
 
-<div className="project-hero-image-container">
-  <Picture
-    className="project-hero-image"
-    src="https://picsum.photos/1024/768"
-    alt="picture"
-    width="700"
-    height="500"
-  />
-</div>
+<CldImage
+  src="KmbThumbnail_ezbuzj"
+  width={800}
+  height={500}
+  class="m-auto rounded-4xl"
+/>
 
 [click here to check this out!](https://keep-mass-beautiful.vercel.app/Demo)
 

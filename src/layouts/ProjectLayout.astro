@@ -2,8 +2,6 @@
 import ProjectHeader from "../components/ProjectHeader";
 import "@fontsource-variable/inter";
 import "../styles/global.css";
-import { CldImage } from "astro-cloudinary";
-import ProjectProse from "../components/styling/ProjectProse.astro";
 ---
 
 <html>
@@ -12,11 +10,12 @@ import ProjectProse from "../components/styling/ProjectProse.astro";
     <div class="mx-auto" style="width: 80vw;">
       <ProjectHeader client:load />
     </div>
-    <div class="w-full max-w-[100vw] overflow-hidden"></div>
+
     <div class="mx-auto">
       <!-- <h1 class="text-42 font-normal text-dark mx-auto">{frontmatter.title}</h1> -->
 
       <slot />
+      <div class="w-full max-w-[100vw] h-100 overflow-hidden"></div>
     </div>
 
     <style is:global>

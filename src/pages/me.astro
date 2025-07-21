@@ -1,91 +1,90 @@
 ---
+import Hero from "../components/Hero.astro";
 import ResumeItem from "../components/ResumeItem.astro";
 import SectionTitle from "../components/SectionTitle";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="world">
-  <div class="experience-container">
+  <Hero
+    title="hey there, i'm just clarence"
+    subtitle="i like making YouTube videos and playing with my cat"
+  />
+  <hr class="border-1 w-[78vw] bg-blue-6 my-14 m-auto" />
+  <div class="flex flex-row w-[80vw] item-start justify-between m-auto">
     <SectionTitle title="EXPERIENCE" notBlock={true} />
-    <div class="resume-container">
+    <div class="flex flex-col flex-5/12 gap-4">
       <ResumeItem
         date="JULY 2023 - PRESENT"
-        title="Tech Lead"
+        title="Co-Founder, Tech Lead"
         organization="Freebites"
       >
-        Led the development of a React Native app aimed to reduce food waste on
-        college campuses. <br /> Mentored 6 new programmers through onboarding, creating
-        a Git workflow, leading React Native workshops, and extensive code review.
+        <div class="flex flex-col gap-3">
+          <p class="text-base">
+            Led 8 developers and 2 designers to build, launch, and support a
+            React Native app (Expo, TypeScript, Node.js, MongoDB, Firebase)
+            dedicated to reducing food waste on college campuses.
+          </p>
+
+          <p class="text-base">
+            Used by 1000+ users and supported on GCP Cloud Run.
+          </p>
+
+          <p class="text-base">
+            Designed and implemented REST APIs for core features(posting,
+            commenting, blocking), managed backend infrastructure and Firebase
+            auth, and reviewed 100+ PRs for quality assurance.
+          </p>
+          <p class="text-base">
+            Pitched the app in entrepreneurship competitions, raising $5,000+ in
+            funding.
+          </p>
+        </div>
       </ResumeItem>
       <ResumeItem
         date="MAY 2024 - PRESENT"
         title="Tech Lead"
         organization="JumboCode: English At Large"
       >
-        Leading the development of a Next.js/PostgreSQL library webapp to serve
-        immigrant communities in the Greater Boston Area. <br />
+        <p class="text-base">
+          Leading the development of a Next.js/PostgreSQL library webapp to
+          serve immigrant communities in the Greater Boston Area.
+        </p>
       </ResumeItem>
       <ResumeItem
         date="MAY - AUG 2024"
         title="Software Engineer Intern"
-        organization="Markit Social"
+        organization="Markit AI (formerly Markit Social)"
       >
-        Developed React/React Native full stack software solutions for Markit,
-        such as user data export features and developing + launching new landing
-        and explore pages for the web app. <br />
-        <br />Performed critical updates to the app's infrastructure, such as
-        updating and migrating to new notification and authentication services
-        for its 100,000 users.
+        <div class="flex flex-col gap-3">
+          <div class="text-base">
+            Developed React/React Native full stack software solutions for
+            Markit, such as user data export features and developing + launching
+            new landing and explore pages for the web app.
+          </div>
+          <div class="text-base">
+            Performed critical updates to the app's infrastructure, such as
+            updating and migrating to new notification and authentication
+            services for its 100,000 users.
+          </div>
+        </div>
       </ResumeItem>
       <ResumeItem
         date="SEP 2023 - JUNE 2024"
         title="Full Stack Developer"
         organization="Tufts JumboCode"
       >
-        Worked on a team of 13 student to develop a website-building platform
-        for Keep Mass Beautiful, a 40+ chapter statewide environmental
-        non-profit.
+        <div class="text-base">
+          Worked on a team of 13 student to develop a website-building platform
+          for Keep Mass Beautiful, a 40+ chapter statewide environmental
+          non-profit.
+        </div>
       </ResumeItem>
     </div>
   </div>
 
-  <hr class="divider" />
+  <hr class="border-1 w-[78vw] bg-blue-6 my-14 m-auto" />
   <!-- <div class="me-container">
     <SectionTitle title="MY CURRENT OBSESSIONS :)" notBlock={true} />
   </div> -->
 </Layout>
-
-<style>
-  .experience-container {
-    display: flex;
-    width: 80vw;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: row;
-    margin: auto;
-    margin-top: 130px;
-  }
-
-  .me-container {
-    display: flex;
-    width: 80vw;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: row;
-    margin: auto;
-    margin-bottom: 80px;
-  }
-  .resume-container {
-    display: flex;
-    flex-direction: column;
-    flex: 6;
-    gap: 48px;
-  }
-  .divider {
-    border: none;
-    height: 1px;
-    width: 78vw;
-    background-color: #d9e3ff;
-    margin-block: 60px;
-  }
-</style>

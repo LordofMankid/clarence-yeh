@@ -11,12 +11,14 @@ import { Image } from "astro:assets";
 import Fridgelink1 from "../../assets/fridgelink/fridgelink1.png";
 import Fridgelink2 from "../../assets/fridgelink/fridgelink2.png";
 import Fridgelink3 from "../../assets/fridgelink/fridgelink3.png";
+import { CldImage } from "astro-cloudinary";
 
-<div className="project-hero-image-container">
-  <Image src={Fridgelink1} alt={"image"} className="project-hero-image" />
-  <Image src={Fridgelink2} alt={"image"} className="project-hero-image" />
-  <Image src={Fridgelink3} alt={"image"} className="project-hero-image" />
-</div>
+<CldImage
+  src="FridgelinkThumbnail_gzldoq"
+  width={800}
+  height={500}
+  class="m-auto rounded-4xl"
+/>
 
 [click here to check out more about our process!](https://devpost.com/software/myvoterinfo)
 
