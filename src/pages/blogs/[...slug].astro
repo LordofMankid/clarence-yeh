@@ -1,0 +1,18 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+
+// Generate routes for each project
+export async function getStaticPaths() {
+  const blogs = await getCollection("blogs");
+  return blogs.map((blog: CollectionEntry<"blogs">) => ({
+    params: { slug: blog.slug },
+    props: { blog },
+  }));
+}
+
+const { blog } = Astro.props;
+const { Content } = await render(blog);
+---
+
+<Content />

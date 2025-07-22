@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "tinacms dev -c \"astro dev\"",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -27,11 +27,14 @@
     "sass": "^1.78.0",
     "tailwindcss": "^4.1.11",
     "tech-stack-icons": "^2.1.0",
+    "tinacms": "^2.8.1",
     "typescript": "^5.3.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
+    "@tinacms/cli": "^1.10.1",
     "@types/jquery": "^3.5.29",
+    "@types/node": "^24.1.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.12.3"
   }
