@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
+    "vercel-dev": "tinacms dev -c \"vercel dev\"",
     "start": "astro dev",
     "build": "tinacms build && astro check && astro build",
     "preview": "astro preview",
