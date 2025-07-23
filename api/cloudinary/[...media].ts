@@ -1,12 +1,15 @@
-import {
+// /api/cloudinary/[...media].ts
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
+const {
   mediaHandlerConfig,
   createMediaHandler,
-} from "next-tinacms-cloudinary/dist/handlers.js";
-
-import pkg from "@tinacms/auth";
-const { isAuthorized } = pkg;
+} = require("next-tinacms-cloudinary/dist/handlers");
+const { isAuthorized } = require("@tinacms/auth");
 
 export const config = mediaHandlerConfig;
+
 function requireEnv(name: string): string {
   const value = process.env[name];
   if (!value) throw new Error(`Missing required environment variable: ${name}`);
@@ -24,7 +27,6 @@ export default createMediaHandler({
       }
 
       const user = await isAuthorized(req);
-
       return user?.verified || false;
     } catch (e) {
       console.error(e);
