@@ -6,7 +6,10 @@
     "dev": "tinacms dev -c \"astro dev\"",
     "vercel-dev": "tinacms dev -c \"vercel dev\"",
     "start": "astro dev",
-    "build": "tinacms build && astro check && astro build",
+    "build:tina": "tinacms build",
+    "build:check": "astro check",
+    "build:astro": "astro build",
+    "build": "npm run build:tina && npm run build:check && npm run build:astro",
     "preview": "astro preview",
     "astro": "astro"
   },
