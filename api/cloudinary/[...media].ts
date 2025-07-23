@@ -1,5 +1,3 @@
-// pages/api/cloudinary/[...media].ts
-
 import {
   mediaHandlerConfig,
   createMediaHandler,
@@ -9,7 +7,6 @@ import pkg from "@tinacms/auth";
 const { isAuthorized } = pkg;
 
 export const config = mediaHandlerConfig;
-
 function requireEnv(name: string): string {
   const value = process.env[name];
   if (!value) throw new Error(`Missing required environment variable: ${name}`);
@@ -20,15 +17,15 @@ export default createMediaHandler({
   cloud_name: requireEnv("PUBLIC_CLOUDINARY_CLOUD_NAME"),
   api_key: requireEnv("PUBLIC_CLOUDINARY_API_KEY"),
   api_secret: requireEnv("CLOUDINARY_API_SECRET"),
-  authorized: async (req, _res): Promise<boolean> => {
+  authorized: async (req, _res) => {
     try {
-      if (process.env.NODE_ENV === "development") {
+      if (process.env.NODE_ENV == "development") {
         return true;
       }
 
       const user = await isAuthorized(req);
 
-      return Boolean(user && user.verified);
+      return user?.verified || false;
     } catch (e) {
       console.error(e);
       return false;
