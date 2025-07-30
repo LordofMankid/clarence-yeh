@@ -93,6 +93,80 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "project",
+        label: "Projects",
+        path: "src/content/projects",
+        format: "mdx",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "dateRange",
+            label: "Date Range",
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "publishDate",
+            label: "Published On",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "techStack",
+            label: "Tech Stack",
+            list: true,
+          },
+          {
+            type: "image",
+            name: "thumbnail",
+            label: "Thumbnail",
+            required: true,
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+            templates: [
+              {
+                name: "SectionTitle",
+                label: "Section Title",
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                  },
+                  {
+                    type: "boolean",
+                    name: "notBlock",
+                    label: "Not Block Style?",
+                  },
+                ],
+              },
+              {
+                name: "CldImage",
+                label: "Image",
+                fields: [{ type: "image", name: "image" }],
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 });

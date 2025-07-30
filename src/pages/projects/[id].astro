@@ -2,7 +2,10 @@
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
 import ProjectProse from "../../components/styling/ProjectProse.astro";
+import SectionTitle from "../../components/SectionTitle";
 
+// inject components
+const components = { SectionTitle };
 // Generate routes for each project
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -32,6 +35,6 @@ const { Content } = await render(project);
   } -->
   <ProjectProse>
     <h1>{project.data.title}</h1>
-    <Content />
+    <Content components={components} />
   </ProjectProse>
 </ProjectLayout>

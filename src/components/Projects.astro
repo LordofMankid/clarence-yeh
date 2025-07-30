@@ -22,7 +22,7 @@ const projects = await getCollection("projects");
             date={project.data.date}
             techStack={project.data.techStack}
             url={`/projects/${project.id}`}
-            imageSrc={project.data.image}
+            imageSrc={project.data.thumbnail}
           />
         );
       })
