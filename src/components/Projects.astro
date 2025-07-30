@@ -1,5 +1,4 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import Card from "./Card.astro";
 import SectionTitle from "./SectionTitle";
 import { getCollection } from "astro:content";
@@ -19,7 +18,7 @@ const projects = await getCollection("projects");
           <Card
             title={project.data.title}
             subtitle={project.data.description}
-            date={project.data.date}
+            date={project.data.dateRange}
             techStack={project.data.techStack}
             url={`/projects/${project.id}`}
             imageSrc={project.data.thumbnail}
