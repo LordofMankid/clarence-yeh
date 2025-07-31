@@ -13,18 +13,22 @@ const projects = await getCollection("projects");
     class="grid grid-cols-1 md:grid-cols-2 sm:gap-16 lg:gap-28 w-[80vw] m-auto"
   >
     {
-      projects.map((project) => {
-        return (
-          <Card
-            title={project.data.title}
-            subtitle={project.data.description}
-            date={project.data.dateRange}
-            techStack={project.data.techStack}
-            url={`/projects/${project.id}`}
-            imageSrc={project.data.thumbnail}
-          />
-        );
-      })
+      projects
+        .sort(
+          (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
+        )
+        .map((project) => {
+          return (
+            <Card
+              title={project.data.title}
+              subtitle={project.data.description}
+              date={project.data.dateRange}
+              techStack={project.data.techStack}
+              url={`/projects/${project.id}`}
+              imageSrc={project.data.thumbnail}
+            />
+          );
+        })
     }
   </div>
 </div>
