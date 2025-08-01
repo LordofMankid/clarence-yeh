@@ -1,12 +1,12 @@
 ---
-const { title, subtitle } = Astro.props;
+const { title, subtitle, hidePic } = Astro.props;
 import LinkIcons from "./index/LinkIcons.astro";
 import ProfileIcon from "./index/ProfileIcon.astro";
 ---
 
 <div id="Home">
   <div class="w-[80vw] m-auto pt-14">
-    <ProfileIcon />
+    {hidePic ? null : <ProfileIcon />}
     <div>
       <h2>{title}</h2>
     </div>
@@ -16,7 +16,7 @@ import ProfileIcon from "./index/ProfileIcon.astro";
         <p>{subtitle}</p>
       </div>
 
-      <LinkIcons />
+      {hidePic ? null : <LinkIcons />}
     </div>
   </div>
 </div>

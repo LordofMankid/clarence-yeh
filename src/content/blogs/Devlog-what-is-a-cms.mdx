@@ -1,0 +1,32 @@
+---
+title: "Devlog: what is a cms?"
+date: 2025-07-31T04:00:00.000Z
+subtitle: i wish i knew this sooner
+tags:
+  - devlog
+---
+
+Over the last few weeks, I've been working on this portfolio site here. I've been hard at work integrating some fun CMS stuff that my girlfriend [Vina](https://vina-le.vercel.app/) told me about!
+
+<SectionTitle title="What's a CMS?" />
+
+I had no idea what a CMS was until last week! It's a way to create and manage content without needing to code, according to [Optimizely](https://www.optimizely.com/optimization-glossary/content-management-system/).
+
+![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1754088250/75c25a6e-aa91-45e7-b4f7-54ca29efb1ba.png)
+
+<SectionTitle title="But you already can code! So why do this?" />
+
+Look, I'm lazy and a visual learner. I could stare at each of the blog post's .mdx files and type everything out manually, but I could also just use a CMS to help me write my blog posts faster.
+
+Now, I don't want it to be too easy, because where's the fun in that? I decided on a more lightweight solution through what's known as a headless CMS, where the content management is separate from the frontend (so I can basically customize it).
+
+I'm using [TinaCMS](https://tina.io/), which I picked over Sanity because it's open-source, lightweight, integrated directly with Git, and has real-time editing capabilities. I can edit directly through my site and choose to integrate a lot of stuff myself, for example, I've connected my image hosting to my own [Cloudinary account.](https://cloudinary.com/)
+
+![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1754088814/9065fe5d-4379-40da-9d91-ba9b09471c50.png)
+Just having a text editor makes life a lot easier…
+
+<SectionTitle title="Any issues?" />
+
+Yeah, right now trying to upload images through Tina's Cloudinary plugin simply doesn't work and I'm pretty sure I've followed their [starter repo](https://astro.build/themes/details/astro-tinacms-and-cloudinary-starter/) pretty well. Not a huge deal right now, as I can upload manually to Cloudinary anyway, and I'm going to start working on a website rework tomorrow anyway.
+
+Signing off!

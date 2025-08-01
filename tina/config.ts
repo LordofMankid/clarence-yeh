@@ -86,10 +86,34 @@ export default defineConfig({
             required: false,
           },
           {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true,
+          },
+          {
             type: "rich-text",
             name: "body",
             label: "Body",
             isBody: true,
+            templates: [
+              {
+                name: "SectionTitle",
+                label: "Section Title",
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title",
+                  },
+                  {
+                    type: "boolean",
+                    name: "notBlock",
+                    label: "Not Block Style?",
+                  },
+                ],
+              },
+            ],
           },
         ],
       },

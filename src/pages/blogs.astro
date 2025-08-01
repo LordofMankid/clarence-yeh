@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import { getCollection } from "astro:content";
+const blogs = await getCollection("blogs");
+console.log(blogs);
+---
+
+<Layout>
+  <Hero title="Here's my blog" hidePic />
+  <ul class="list-none w-[80vw] m-auto pt-14">
+    {
+      blogs
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+        .map((blog) => {
+          return (
+            <li>
+              <a href={`/blogs/${blog.id}`}>{blog.data.title}</a>
+            </li>
+          );
+        })
+    }
+  </ul>
+</Layout>

@@ -19,6 +19,7 @@ const blogSchema = z.object({
   date: z.date(),
   subtitle: z.string(),
   thumbnail: z.string().optional(),
+  tags: z.array(z.string()),
 });
 
 const blogCollection = defineCollection({

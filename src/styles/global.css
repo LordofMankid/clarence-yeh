@@ -27,3 +27,11 @@
    --color-blue-6: oklch(88.80% 0.0437 266.88);
    --color-blue-7: oklch(68.58% 0.1493 268.26);
 }
+
+html, body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;
+}

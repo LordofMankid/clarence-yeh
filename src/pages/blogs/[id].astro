@@ -1,0 +1,25 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import ProjectProse from "../../components/styling/ProjectProse.astro";
+import SectionTitle from "../../components/SectionTitle";
+const components = { SectionTitle };
+// Generate routes for each project
+export async function getStaticPaths() {
+  const blogs = await getCollection("blogs");
+  return blogs.map((blog: CollectionEntry<"blogs">) => ({
+    params: { id: blog.id },
+    props: { blog },
+  }));
+}
+
+const { blog } = Astro.props;
+const { Content } = await render(blog);
+---
+
+<ProjectLayout>
+  <ProjectProse>
+    <h1>{blog.data.title}</h1>
+    <Content components={components} />
+  </ProjectProse>
+</ProjectLayout>
