@@ -10,12 +10,48 @@ I had a bit of a rest this weekend, but I decided to stop procrastinating and fi
 
 ![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1754246424/da807e41-df3a-4ec1-a30f-3267cd659549.png)
 
-The section where the phone is at is supposed to be animated, and for that, we're using a combination of [anime.js](https://animejs.com) and Pixi.js. 
+The section where the phone is at is supposed to be animated, and for that, we're using a combination of [anime.js](https://animejs.com) and Pixi.js.
 
 <SectionTitle title="What's that?" />
 
-anime.js is an animation library that allows you to…animate things. So why use two animation libraries? It's because Pixi.js is for animating actual animations, like animating the phone itself, while anime.js will be used for animating interactable UI components, 
-
+anime.js is an animation library that allows you to…animate things. So is Pixi. So why use two animation libraries? Pixi.js a WebGL renderer, used for animating *actual* animations, or even games, so I can animate sprites, filters, and entire scenes. This is ideal for complex animations that will be on the phone. On the other hand, anime.js will be used for animating interactable UI components directly in the DOM, like `<p>` or `<div>` tags. Most importantly, it syncs with user interactions, like scrolling:
 
 ```ts
+  // animate on scroll
+        animate(topHeroRef.current, {
+          opacity: { from: 1, to: 0, duration: 350, ease: "in(3)" },
+          autoplay: onScroll({
+            target: topHeroRef.current,
+            container: ".page",
+            enter: "top+=10% top",
+            leave: "top+=10% bottom-=20%",
+            repeat: true,
+            sync: 1,
+            // debug: true,
+          }),
+        });
+
+        animate(popupWrapperRef.current, {
+          opacity: { from: 1, to: 0, duration: 350, ease: "in(3)" },
+          translateY: {
+            from: 0,
+            to: 150,
+            ease: "linear",
+            duration: 1000,
+          },
+          autoplay: onScroll({
+            target: topHeroRef.current,
+            container: ".page",
+            enter: "top+=10% top",
+            leave: "top+=10% bottom+=20%",
+            repeat: true,
+            sync: 0.1,
+            // debug: true,
+          }),
+        });
+      }
 ```
+
+I can trigger methods from these scroll observers to trigger animations in the Pixi.js canvas (aka the phone), like .call(handleAnimation);
+
+<SectionTitle title="So, what did I do?" />
