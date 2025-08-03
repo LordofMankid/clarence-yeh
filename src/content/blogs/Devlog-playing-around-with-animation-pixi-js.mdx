@@ -55,3 +55,53 @@ anime.js is an animation library that allows you to…animate things. So is Pixi
 I can trigger methods from these scroll observers to trigger animations in the Pixi.js canvas (aka the phone), like .call(handleAnimation);
 
 <SectionTitle title="So, what did I do?" />
+
+Nothing much on the Pixi side, as I'm still playing around with it. I set up the groundwork and connected the different images to different states, but I'm still trying to figure out how to make actual animated transitions.
+
+Instead, I spent my time creating an idle animation:
+
+```ts
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const animate = (delta: number) => {
+      if (!isIdling || !containerRef.current || isTransitioning) return;
+
+      idleTimeRef.current += delta * 0.01;
+      const time = idleTimeRef.current;
+      const container = containerRef.current;
+
+      // Apply idle animations to the entire container
+      const scaleOffset = Math.sin(time) * 0.02;
+      container.scale.x = 1 + scaleOffset;
+      container.scale.y = 1 + scaleOffset;
+
+      const floatOffset = Math.sin(time * 0.7) * 3;
+      container.y = 400 + floatOffset;
+
+      container.rotation = Math.sin(time * 0.5) * 0.03;
+    };
+
+    animateRef.current = animate;
+    app.ticker.add(() => animate(0.5));
+
+    return () => {
+      if (animateRef.current) {
+        app.ticker.remove(() => animateRef.current);
+        animateRef.current = null;
+      }
+    };
+  }, [app.ticker, isIdling, isTransitioning]);
+
+  // Reset idle state
+  useEffect(() => {
+    if (!isIdling && containerRef.current) {
+      const container = containerRef.current;
+      container.scale.set(1);
+      container.y = 400;
+      container.rotation = 0;
+    }
+  }, [isIdling]);
+```
+
+![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1754246243/FreebitesIdleAnimation_wrifh7.gif)
