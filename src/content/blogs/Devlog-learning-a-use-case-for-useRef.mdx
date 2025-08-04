@@ -1,0 +1,86 @@
+---
+title: 'Devlog: learning a use case for useRef'
+date: 2025-08-04T04:00:00.000Z
+subtitle: damn i love useRef
+tags:
+  - freebites
+---
+
+I never really understood how useful useRef was. I've used it before, but I've never really understood how good it was.
+
+Today, I delved deeper into the wonders of Pixi.js and animations on the [Freebites website](https://www.freebites.org/). Note that it's my first time using these packages and so I'm probably doing a lot of stuff wrong. My code is definitely going to burn some eyes, so I'm hesitant to do some code snippets.
+
+The basic structure of how we're handling our animations and components are:
+
+* parent component where I manage a ScrollObserver 
+  * \<Application /> component (from pixi.js/react)
+  * \<Application /> component (in my AnimatedPhone component)
+
+Initially, AnimatedPhone had a prop with a state I managed from the parent component, but this state caused a re-renders, which restarted both component's animations entirely, so my screen would start flashing.
+
+<SectionTitle title="How do I stop re-rendering???" />
+
+useRef to the rescue!
+
+Because useRef doesn't cause re-renders, I'm free to use these to access whatever I want. Yes, the code looks uglier, but people seeing the website won't see that!
+
+This allowed me to use useImperativeHandle to create expose functions from the component that I could use in the parent. Note that you shouldn't overuse this hook, only when absolutely necessary [as per the docs](https://react.dev/reference/react/useImperativeHandle)(I couldn't think of a way to use props, especially with these animations depending on NOT rerendering).
+
+This is my interface for AnimatedPhoneRef:
+ 
+
+```ts
+export interface AnimatedPhoneRef {
+  fireAnimation: (animationType: string, direction: string) => void;
+  updateScrollProgress: (progress: number) => void;
+  getAnimationState: () => {
+    swipeComplete: boolean;
+    notificationsComplete: boolean;
+  };
+}
+```
+
+I want this animation to be triggered by scrolling, but not controlled by scrolling. Otherwise, the animation might not look as snappy. anime.js does expose the progress of how far I've scrolled scrolling, but I can't just pass it into the phoneComponent and sync it up 1 to 1.
+
+I'm sure there's a better way, but for now I just took the current progress and set some breakpoints to hardcode each case into the onUpdate function from anime.js.
+
+```ts
+onUpdate: (self) => {
+  const progress = self.progress; // normalized between 0 to 1
+  
+  const scrollDirection =
+    progress > lastProgress.current ? "down" : "up";
+  lastProgress.current = progress;
+  
+  // Define breakpoints
+  const swipeBreakpoint = 0.55;
+  const notificationBreakpoint = 0.85;
+  
+  // Track scroll direction
+  if (
+    scrollDirection !== animationState.current.lastScrollDirection
+  ) {
+    animationState.current.lastScrollDirection = scrollDirection;
+  }
+  
+  // SWIPE ANIMATION
+  if (
+    scrollDirection === "down" &&
+    progress >= swipeBreakpoint &&
+    !animationState.current.swipeTriggered
+  ) {
+    // Fire swipe animation
+    animationState.current.swipeTriggered = true;
+    phoneRef.current?.fireAnimation("swipe", "forward");
+  } 
+
+// ...it continues here...
+```
+
+I only have two breakpoints, so this is fine for now. I track direction because I need to trigger the reverse animation if I'm scrolling up. This really would've been a lot easier if I just synced it up with the progress…Maybe it's still possible, but we'll see.
+
+The current animation code I have right now is really ugly, so I won't show it for now as I'll clean it up in the future. I doubt anyone would learn anything from it as it is right now anyway. Instead, I'll show what I have!
+
+![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1754345797/FreebitesSwipeTransition1_ssxe4l.gif)![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1754345797/FreebitesNotifTransition1_hnu6ar.gif)
+
+That's all for now, signing off!
