@@ -13,6 +13,7 @@
   }
   main img, article img, .prose img {
     @apply rounded-4xl;   /* prose-img doesn't work */
+    @apply m-auto;
   }
   
 }
