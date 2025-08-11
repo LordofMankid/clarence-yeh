@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Projects from "../components/Projects.astro";
 import Skills from "../components/Skills.astro";
+import SectionTitle from "../components/SectionTitle";
 ---
 
 <Layout title="Hello, world!">
@@ -10,6 +11,14 @@ import Skills from "../components/Skills.astro";
     title="Hey there, I'm Clarence Yeh"
     subtitle="I'M A CO-FOUNDER AND CTO OF FREEBITES, FORMERLY AT MARKIT AI"
   />
+  <SectionTitle title="I'M REVAMPING THIS WEBSITE" />
+  <div class="w-[80vw] m-auto">
+    <p>
+      click <a href="/new" class="font-inherit text-inherit">here</a> for a preview!
+      check out my <a href="/blogs" class="font-inherit text-inherit">blog</a> to
+      stay up to date!
+    </p>
+  </div>
   <Projects />
   <Skills />
 </Layout>

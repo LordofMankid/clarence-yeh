@@ -6,7 +6,9 @@ import ProfileIcon from "./index/ProfileIcon.astro";
 
 <div id="Home">
   <div class="w-[80vw] m-auto pt-14">
-    {hidePic ? null : <ProfileIcon />}
+    <div>
+      {hidePic ? null : <ProfileIcon />}
+    </div>
     <div>
       <h2>{title}</h2>
     </div>
