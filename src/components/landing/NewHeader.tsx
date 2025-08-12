@@ -10,7 +10,7 @@ export default function NewHeader(props: { currentPath: string }) {
       <a href="/">
         <img
           className="h-20 w-20 m-0 rounded-5xl"
-          src="/assets/profilePic.jpg"
+          src="/assets/pixelProfPic.png"
         />
       </a>
       <ul

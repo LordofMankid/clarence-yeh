@@ -1,21 +1,33 @@
 export default function Header(props: { currentPath: string }) {
   const { currentPath } = props;
   const navItems = [
-    { path: "/", label: "Work" },
-    { path: "/me", label: "Me" },
-    { path: "/blogs", label: "Journal" },
+    { id: "about", label: "ABOUT" },
+    { id: "projects", label: "PROJECTS" },
+    { id: "blogs", label: "BLOG" },
   ];
   return (
-    <nav className="flex justify-center mt-12 relative">
-      <ul className="flex justify-center items-center px-12 h-16 rounded-3xl bg-white gap-4">
-        {navItems.map(({ path, label }) => (
-          <div className="flex justify-center w-16" key={path}>
+    <nav className="fixed flex mt-12 w-full">
+      <a href="/">
+        <img
+          className="absolute h-20 w-20 ml-28 rounded-5xl"
+          src="/assets/pixelProfPic.png"
+        />
+      </a>
+      <ul
+        className="absolute left-1/2 -translate-x-1/2 
+                     flex justify-center items-center px-12 h-16 rounded-3xl gap-16"
+      >
+        {navItems.map(({ id, label }) => (
+          <div className="flex justify-center" key={id}>
             <div
-              className={`${currentPath === path ? "absolute top-4 h-0.5 w-20 bg-blue-3" : ""}`}
+              className={`${currentPath === `#${id}` ? "text-amber-1" : ""}`}
             />
             <li>
-              <a href={path}>
-                <p className="text-blue-1 text-xl">{label}</p>
+              <a
+                href={`#${id}`}
+                className="text-white hover:text-amber-1 text-2xl no-underline"
+              >
+                {label}
               </a>
             </li>
           </div>

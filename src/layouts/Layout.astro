@@ -1,15 +1,15 @@
 ---
 import "@fontsource-variable/inter";
 import "../styles/global.css";
-import Header from "../components/Header";
-const currentPath = Astro.url.pathname;
+import ParallaxBackground from "../components/landing/ParallaxBackground";
+
 interface Props {
   title?: string;
 }
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,8 +22,11 @@ interface Props {
     <script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js"
     ></script>
   </head>
-  <body class="font-inter w-full m-0 bg-blue-4" style="overflow-x: hidden;">
-    <Header currentPath={currentPath} />
+  <body
+    class="font-anonymous-pro w-full m-0 bg-blue-4 scroll-smooth"
+    style="overflow-x: hidden;"
+  >
+    <ParallaxBackground client:load />
     <main>
       <slot />
 

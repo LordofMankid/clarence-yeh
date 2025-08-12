@@ -4,21 +4,18 @@ import Hero from "../components/Hero.astro";
 import Projects from "../components/Projects.astro";
 import Skills from "../components/Skills.astro";
 import SectionTitle from "../components/SectionTitle";
+import Header from "../components/Header";
+import LandingHero from "../components/landing/LandingHero";
+import NewIcons from "../components/landing/NewIcons";
+
+const currentPath = Astro.url.pathname;
 ---
 
 <Layout title="Hello, world!">
-  <Hero
-    title="Hey there, I'm Clarence Yeh"
-    subtitle="I'M A CO-FOUNDER AND CTO OF FREEBITES, FORMERLY AT MARKIT AI"
-  />
-  <SectionTitle title="I'M REVAMPING THIS WEBSITE" />
-  <div class="w-[80vw] m-auto">
-    <p>
-      click <a href="/new" class="font-inherit text-inherit">here</a> for a preview!
-      check out my <a href="/blogs" class="font-inherit text-inherit">blog</a> to
-      stay up to date!
-    </p>
+  <Header currentPath={currentPath} />
+  <LandingHero client:load />
+  <NewIcons client:load />
+  <div id="projects" class="h-screen">
+    <Projects />
   </div>
-  <Projects />
-  <Skills />
 </Layout>
