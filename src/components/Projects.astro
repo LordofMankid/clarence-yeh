@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import Card from "./landing/Card";
 import SectionTitle from "./SectionTitle";
 import { getCollection } from "astro:content";
@@ -19,13 +20,10 @@ const projects = await getCollection("projects");
               title={project.data.title}
               subtitle={project.data.description}
               date={project.data.dateRange}
-              techStack={project.data.techStack}
               projUrl={`/projects/${project.id}`}
               imageSrc={project.data.thumbnail}
-              links={[
-                { url: "https://google.com", linkText: "hi" },
-                { url: "https://google.com", linkText: "hi" },
-              ]}
+              links={project.data.links}
+              additionalInfo={project.data.additionalInfo}
               client:load
             />
           );

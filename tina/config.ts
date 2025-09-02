@@ -161,6 +161,33 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "string",
+            name: "additionalInfo",
+            label: "Additional Info",
+            required: false,
+            list: true,
+          },
+          {
+            type: "object",
+            name: "links",
+            label: "Links",
+            list: true,
+            fields: [
+              {
+                type: "string",
+                name: "url",
+                label: "URL",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "linkText",
+                label: "Link Text",
+                required: true,
+              },
+            ],
+          },
+          {
             type: "rich-text",
             name: "body",
             label: "Body",

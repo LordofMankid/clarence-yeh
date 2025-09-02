@@ -63,7 +63,13 @@ const styles = {
         )
       }
       <div class="absolute top-6 right-8 flex gap-0.5 z-10">
-        {techStack ? techStack.map((skill) => <Icon name={skill} />) : null}
+        {
+          techStack
+            ? techStack.map((skill) => (
+                <Icon name={skill} client:only="react" />
+              ))
+            : null
+        }
       </div>
     </div>
     <div class="flex flex-col gap-1">

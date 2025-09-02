@@ -1,4 +1,6 @@
+import { Icon } from "astro-icon/components";
 import { motion, useScroll, useTransform } from "framer-motion";
+import type { ReactNode } from "react";
 
 interface CardLink {
   url: string;
@@ -10,10 +12,11 @@ interface CardProps {
   date: string;
   caption?: string;
   projUrl?: string;
-  techStack: string[];
+  // techStackIcons: ReactNode[];
   imageSrc?: string;
   altImagePosition?: string;
   links?: CardLink[];
+  additionalInfo?: string[];
 }
 
 export default function Card(props: CardProps) {
@@ -23,10 +26,11 @@ export default function Card(props: CardProps) {
     date,
     projUrl,
     caption,
-    techStack,
+    // techStackIcons,
     imageSrc,
     links,
     altImagePosition,
+    additionalInfo,
   } = props;
   return (
     <div className="block no-underline text-inherit">
@@ -74,7 +78,14 @@ export default function Card(props: CardProps) {
               <p className="text-2xl text-center">{title}</p>
               <p className="font-bold leading-5">{subtitle}</p>
             </div>
-            <div className="flex w-full">
+            <div className="flex flex-col w-full ">
+              {additionalInfo?.map((info, index) => {
+                return (
+                  <p key={index} className="font-bold text-left leading-5">
+                    {info}
+                  </p>
+                );
+              })}
               {date ? (
                 <p className="font-bold text-left leading-5">
                   Timeline: {date}
@@ -100,9 +111,9 @@ export default function Card(props: CardProps) {
           </div>
         </motion.div>
 
-        {/* <div className="absolute top-6 right-8 flex gap-0.5 z-10">
-          {techStack ? techStack.map((skill) => <Icon name={skill} />) : null}
-        </div> */}
+        <div className="absolute top-6 right-8 flex gap-0.5 z-10">
+          {/* {techStackIcons} */}
+        </div>
       </div>
     </div>
   );

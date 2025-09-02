@@ -7,6 +7,15 @@ const projectSchema = z.object({
   publishDate: z.date(),
   techStack: z.array(z.string()),
   thumbnail: z.string().optional(),
+  additionalInfo: z.array(z.string()).optional(),
+  links: z
+    .array(
+      z.object({
+        url: z.string().url(),
+        linkText: z.string(),
+      })
+    )
+    .optional(),
 });
 
 const projectsCollection = defineCollection({
