@@ -1,6 +1,5 @@
-import { Icon } from "astro-icon/components";
+// import { Icon } from "astro-icon/components";
 import { motion, useScroll, useTransform } from "framer-motion";
-import type { ReactNode } from "react";
 
 interface CardLink {
   url: string;
@@ -45,6 +44,20 @@ export default function Card(props: CardProps) {
       >
         {/* <div className="relative aspect-[16/9] rounded-[40px] bg-white shadow-[0px_10px_15px_var(--blue-7)] overflow-hidden"> */}
         {/* {imageSrc ? (
+  url?: string;
+  techStack: string[];
+  imageSrc?: string;
+  altImagePosition?: string;
+}
+
+export default function Card(props: CardProps) {
+  const { title, subtitle, date, url, techStack, imageSrc, altImagePosition } =
+    props;
+  return (
+    <a href={url} className="block no-underline text-inherit">
+      <div className="flex flex-col transition-transform duration-300 ease-in-out hover:scale-110">
+        <div className="relative aspect-[16/9] rounded-[40px] bg-white shadow-[0px_10px_15px_var(--blue-7)] overflow-hidden">
+          {/* {imageSrc ? (
             <CldImage
               src={imageSrc}
               class={`absolute inset-0 w-full h-full object-cover p-0 m-0 ${altImagePosition}`}
