@@ -1,46 +1,29 @@
 // import { Icon } from "astro-icon/components";
 import { motion, useScroll, useTransform } from "framer-motion";
+import type { Project } from "../../content.config";
 
 interface CardLink {
   url: string;
   linkText: string;
 }
 interface CardProps {
-  title: string;
-  subtitle: string;
-  date: string;
   caption?: string;
-  projUrl?: string;
-  // techStackIcons: ReactNode[];
-  imageSrc?: string;
-  altImagePosition?: string;
-  links?: CardLink[];
-  additionalInfo?: string[];
+  id: string;
+  project: Project;
 }
 
 export default function Card(props: CardProps) {
   const {
-    title,
-    subtitle,
-    date,
-    projUrl,
-    caption,
     // techStackIcons,
-    imageSrc,
-    links,
-    altImagePosition,
-    additionalInfo,
+    project,
+    caption,
+    id,
   } = props;
   return (
     <div className="block no-underline text-inherit">
       <div
-        className="flex flex-col transition-transform duration-300 ease-in-out hover:scale-110 hover:cursor-pointer"
-        onClick={() => {
-          console.log("clicked on card");
-          projUrl
-            ? (window.location.href = projUrl)
-            : (window.location.href = "/");
-        }}
+        className="flex flex-col transition-transform duration-100 ease-in-out hover:scale-[101%] hover:cursor-pointer"
+        onClick={() => (window.location.href = `/projects/${id}`)}
       >
         {/* <div className="relative aspect-[16/9] rounded-[40px] bg-white shadow-[0px_10px_15px_var(--blue-7)] overflow-hidden"> */}
         {/* {imageSrc ? (
@@ -80,7 +63,7 @@ export default function Card(props: CardProps) {
           />
           <div className="absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center">
             <img
-              src={imageSrc}
+              src={project.thumbnail}
               alt="Overlay"
               className="max-w-24 max-h-full my-0"
             />
@@ -88,26 +71,26 @@ export default function Card(props: CardProps) {
           </div>
           <div className="absolute top-0 right-0 w-1/2 h-full flex flex-col px-8 pt-24 items-center justify-start gap-10">
             <div className="flex flex-col gap-3">
-              <p className="text-2xl text-center">{title}</p>
-              <p className="font-bold leading-5">{subtitle}</p>
+              <p className="text-2xl text-center">{project.title}</p>
+              <p className="font-bold leading-5">{project.description}</p>
             </div>
             <div className="flex flex-col w-full ">
-              {additionalInfo?.map((info, index) => {
+              {project.additionalInfo?.map((info, index) => {
                 return (
                   <p key={index} className="font-bold text-left leading-5">
                     {info}
                   </p>
                 );
               })}
-              {date ? (
+              {project.dateRange ? (
                 <p className="font-bold text-left leading-5">
-                  Timeline: {date}
+                  Timeline: {project.dateRange}
                 </p>
               ) : null}
             </div>
             <div className="flex w-full flex-start flex-col">
-              {links
-                ? links.map((link) => {
+              {project.links
+                ? project.links.map((link) => {
                     return (
                       <a
                         key={link.url}
