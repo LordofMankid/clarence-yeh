@@ -22,15 +22,21 @@ const Carousel = (props: LandingCarouselProps) => {
 
   return (
     <div>
-      <div className="grid grid-cols-3">
-        {visible.map((project, idx) => {
+      <div className="flex flex-row justify-center relative h-[40vh]">
+        <div className="flex flex-row min-h-72 h-[25vh] bg-red gap-[15vw]">
+          <Card id={visible[0].id} project={visible[0].data} background />
+          <Card id={visible[2].id} project={visible[2].data} background />
+        </div>
+        <div className="flex flex-row h-96 top-32 absolute z-20">
+          <button onClick={prev}>prev</button>
+          <Card id={visible[1].id} project={visible[1].data} />
+
+          <button onClick={next}>next</button>
+        </div>
+        {/* {visible.map((project, idx) => {
           return <Card key={idx} id={project.id} project={project.data} />;
-        })}
+        })} */}
       </div>
-
-      <button onClick={prev}>prev</button>
-
-      <button onClick={next}>next</button>
     </div>
   );
 };

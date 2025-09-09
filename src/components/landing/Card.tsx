@@ -10,19 +10,22 @@ interface CardProps {
   caption?: string;
   id: string;
   project: Project;
+  background?: boolean;
 }
 
 export default function Card(props: CardProps) {
   const {
     // techStackIcons,
+    background,
     project,
     caption,
     id,
   } = props;
   return (
-    <div className="block no-underline text-inherit">
+    <div className="block no-underline text-inherit w-full aspect-[9/5]">
       <div
-        className="flex flex-col transition-transform duration-100 ease-in-out hover:scale-[101%] hover:cursor-pointer"
+        className={`flex flex-col 
+                    ${background ? "" : "transition-transform duration-100 ease-in-out hover:scale-[101%] hover:cursor-pointer"}`}
         onClick={() => (window.location.href = `/projects/${id}`)}
       >
         {/* <div className="relative aspect-[16/9] rounded-[40px] bg-white shadow-[0px_10px_15px_var(--blue-7)] overflow-hidden"> */}
@@ -57,6 +60,9 @@ export default function Card(props: CardProps) {
           )} */}
 
         <motion.div className="relative inline-block">
+          <div
+            className={`${background ? "" : "hidden"}absolute inset-0 z-10 bg-black/40`}
+          />
           <img
             src="assets/non-svg-icons/proj_background.png"
             className="block inset-0 w-full h-full object-cover"
