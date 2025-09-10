@@ -4,6 +4,7 @@ import Card from "./landing/Card";
 import Carousel from "./landing/Carousel";
 import SectionTitle from "./SectionTitle";
 import { getCollection } from "astro:content";
+import ProjectHeader from "./ProjectHeader";
 const projects = await getCollection("projects");
 // const projectList = Object.values(projects);
 const projectArray = projects
@@ -12,7 +13,8 @@ const projectArray = projects
 ---
 
 <div class="min-h-full mt-40">
-  <div class="sm:gap-16 lg:gap-28 w-full m-auto">
+  <ProjectHeader client:load />
+  <div class="sm:gap-16 lg:gap-28 w-full m-auto pt-20">
     <Carousel projects={projectArray} client:load />
   </div>
 </div>

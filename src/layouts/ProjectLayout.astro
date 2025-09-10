@@ -1,14 +1,14 @@
 ---
-import ProjectHeader from "../components/ProjectHeader";
 import "@fontsource-variable/inter";
 import "../styles/global.css";
+import CarouselHeader from "../components/landing/CarouselHeader";
 ---
 
 <html>
   <head><meta charset="utf-8" /></head>
-  <body class="font-inter w-full m-0 bg-blue-4">
+  <body class="font-anonymous-pro text-white w-full m-0 bg-dark-grey">
     <div class="mx-auto" style="width: 80vw;">
-      <ProjectHeader client:load />
+      <CarouselHeader client:load />
     </div>
 
     <div class="mx-auto">
@@ -20,49 +20,9 @@ import "../styles/global.css";
     <style is:global>
       /* Global typography */
 
-      h2 {
-        font-size: 47px;
-        font-weight: 500;
-        color: var(--dark, #302620);
-        margin: 0 auto;
-      }
-
-      h3 {
-        font-size: 20px;
-      }
-
-      p {
-        font-size: 18px;
-      }
-
-      code {
-        font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono",
-          "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New",
-          monospace;
-      }
-
       /* Project-specific image styles */
-      .project-hero-image-container {
-        display: flex;
-        max-height: 500px;
-        max-width: 80vw;
-        margin-block: 50px;
-      }
-
-      .project-hero-image {
-        border-radius: 20px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        max-height: 500px;
-        width: auto;
-      }
 
       /* Add the color variables temporarily */
-      :root {
-        --dark: #302620;
-        --blue-4: #eaf1ff;
-      }
     </style>
   </body>
 </html>

@@ -28,6 +28,7 @@
    --color-blue-6: oklch(88.80% 0.0437 266.88);
    --color-blue-7: oklch(68.58% 0.1493 268.26);
    --color-amber-1: oklch(75.03% 0.116 62.79);
+   --color-dark-grey: oklch(0.2221 0 0);
    --font-anonymous-pro: 'Anonymous Pro', monospace; 
 }
 
