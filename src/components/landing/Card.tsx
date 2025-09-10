@@ -11,6 +11,7 @@ interface CardProps {
   id: string;
   project: Project;
   background?: boolean;
+  className?: string;
 }
 
 export default function Card(props: CardProps) {
@@ -20,12 +21,13 @@ export default function Card(props: CardProps) {
     project,
     caption,
     id,
+    className,
   } = props;
   return (
-    <div className="block no-underline text-inherit w-full aspect-[9/5]">
+    <div className={`block no-underline text-inherit  ${className}`}>
       <div
         className={`flex flex-col 
-                    ${background ? "" : "transition-transform duration-100 ease-in-out hover:scale-[101%] hover:cursor-pointer"}`}
+                    ${background ? "" : "transition-transform duration-100 ease-in-out hover:cursor-pointer"}`}
         onClick={() => (window.location.href = `/projects/${id}`)}
       >
         {/* <div className="relative aspect-[16/9] rounded-[40px] bg-white shadow-[0px_10px_15px_var(--blue-7)] overflow-hidden"> */}
@@ -59,23 +61,22 @@ export default function Card(props: CardProps) {
             />
           )} */}
 
-        <motion.div className="relative inline-block">
-          <div
-            className={`${background ? "" : "hidden"}absolute inset-0 z-10 bg-black/40`}
-          />
+        <motion.div className="relative w-full h-full inline-block">
           <img
             src="assets/non-svg-icons/proj_background.png"
-            className="block inset-0 w-full h-full object-cover"
+            className={`block w-full h-full object-cover ${background ? "brightness-60" : ""}`}
           />
           <div className="absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center">
             <img
               src={project.thumbnail}
               alt="Overlay"
-              className="max-w-24 max-h-full my-0"
+              className={`max-w-24 max-h-full my-0 ${background ? "brightness-60" : ""}`}
             />
             <p className="text-2xl font-bold">{caption}</p>
           </div>
-          <div className="absolute top-0 right-0 w-1/2 h-full flex flex-col px-8 pt-24 items-center justify-start gap-10">
+          <div
+            className={`absolute top-0 right-0 w-1/2 h-full flex flex-col px-8 pt-24 items-center justify-start gap-10 ${background ? "text-black" : ""}`}
+          >
             <div className="flex flex-col gap-3">
               <p className="text-2xl text-center">{project.title}</p>
               <p className="font-bold leading-5">{project.description}</p>
