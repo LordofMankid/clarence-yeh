@@ -27,7 +27,7 @@ export default function Card(props: CardProps) {
     <div className={`block no-underline text-inherit  ${className}`}>
       <div
         className={`flex flex-col 
-                    ${background ? "" : "transition-transform duration-100 ease-in-out hover:cursor-pointer"}`}
+                    ${background ? "" : "transition-transform hover:translate-y-[-4px] duration-200 ease-in-out hover:cursor-pointer"}`}
         onClick={() => (window.location.href = `/projects/${id}`)}
       >
         {/* <div className="relative aspect-[16/9] rounded-[40px] bg-white shadow-[0px_10px_15px_var(--blue-7)] overflow-hidden"> */}
@@ -70,7 +70,7 @@ export default function Card(props: CardProps) {
             <img
               src={project.thumbnail}
               alt="Overlay"
-              className={`max-w-24 max-h-full my-0 ${background ? "brightness-60" : ""}`}
+              className={`max-h-60 max-w-45 my-0 ${background ? "brightness-60" : ""}`}
             />
             <p className="text-2xl font-bold">{caption}</p>
           </div>

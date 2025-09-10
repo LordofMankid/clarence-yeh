@@ -11,7 +11,10 @@ export default function NewIcons() {
 
   const opacity = useTransform(scrollY, [0, vh * 0.5], [1, 0]);
   return (
-    <motion.div style={{ opacity }} className="absolute flex flex-col left-24">
+    <motion.div
+      style={{ opacity }}
+      className="absolute flex flex-col xl:left-48"
+    >
       <div className="flex">
         <a href="https://github.com/lordofmankid" target="_blank">
           <img

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import type { Project } from "../../content.config";
 import Card from "./Card";
 import CarouselButton from "./CarouselButton";
@@ -8,7 +9,15 @@ interface LandingCarouselProps {
 }
 const Carousel = (props: LandingCarouselProps) => {
   const { projects } = props;
+  const { scrollY } = useScroll();
 
+  const [vh, setVh] = useState(1);
+  useEffect(() => {
+    setVh(window.innerHeight);
+  }, []);
+  // Opacity goes from 1 at scroll 0, to 0 at scroll 0.2
+
+  const opacity = useTransform(scrollY, [vh * 0.3, vh * 0.75], [0, 1]);
   const [index, setIndex] = useState(0);
 
   const visible = [
@@ -22,7 +31,7 @@ const Carousel = (props: LandingCarouselProps) => {
     setIndex((i) => (i - 1 + projects.length) % projects.length);
 
   return (
-    <div className="flex flex-col items-center">
+    <motion.div style={{ opacity }} className="flex flex-col items-center">
       <div className="relative flex flex-row justify-center w-full">
         <div className="flex-row min-h-72 h-[25vh] bg-red gap-[15vw] hidden lg:flex">
           <Card
@@ -51,9 +60,8 @@ const Carousel = (props: LandingCarouselProps) => {
           <div className="flex flex-row gap-4 items-center">
             {projects.map((project) => {
               return (
-                <div>
+                <div key={project.id}>
                   <img
-                    key={project.id}
                     src="/assets/non-svg-icons/ticker.png"
                     className={`${visible[2].id === project.id ? "w-5" : "w-4"}`}
                   />
@@ -66,7 +74,7 @@ const Carousel = (props: LandingCarouselProps) => {
           return <Card key={idx} id={project.id} project={project.data} />;
         })} */}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

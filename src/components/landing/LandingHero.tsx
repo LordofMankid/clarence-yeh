@@ -15,7 +15,7 @@ export default function LandingHero() {
   return (
     <motion.div
       style={{ opacity }}
-      className="flex flex-col h-[calc(100vh-256px)] w-screen justify-center pt-28"
+      className="flex flex-col h-[calc(100vh-192px)] w-screen justify-center pt-28"
     >
       <h1 className="text-white text-8xl font-bold mx-auto">Clarence Yeh</h1>
       <h2 className="text-white text-2xl font-semibold mt-4 mx-auto text-center">
