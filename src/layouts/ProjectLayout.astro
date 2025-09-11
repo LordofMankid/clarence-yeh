@@ -2,27 +2,25 @@
 import "@fontsource-variable/inter";
 import "../styles/global.css";
 import CarouselHeader from "../components/landing/CarouselHeader";
+import BaseLayout from "./BaseLayout.astro";
 ---
 
-<html>
-  <head><meta charset="utf-8" /></head>
-  <body class="font-anonymous-pro text-white w-full m-0 bg-dark-grey">
-    <div class="mx-auto" style="width: 80vw;">
-      <CarouselHeader client:load />
-    </div>
+<BaseLayout bodyClass="text-white w-full m-0 bg-dark-grey">
+  <div class="mx-auto" style="width: 80vw;">
+    <CarouselHeader client:load />
+  </div>
 
-    <div class="mx-auto">
-      <!-- <h1 class="text-42 font-normal text-dark mx-auto">{frontmatter.title}</h1> -->
-      <slot />
-      <div class="w-full max-w-[100vw] h-100 overflow-hidden"></div>
-    </div>
+  <div class="mx-auto">
+    <!-- <h1 class="text-42 font-normal text-dark mx-auto">{frontmatter.title}</h1> -->
+    <slot />
+    <div class="w-full max-w-[100vw] h-100 overflow-hidden"></div>
+  </div>
 
-    <style is:global>
-      /* Global typography */
+  <style is:global>
+    /* Global typography */
 
-      /* Project-specific image styles */
+    /* Project-specific image styles */
 
-      /* Add the color variables temporarily */
-    </style>
-  </body>
-</html>
+    /* Add the color variables temporarily */
+  </style>
+</BaseLayout>

@@ -3,6 +3,7 @@ import { getCollection, render, type CollectionEntry } from "astro:content";
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
 import ProjectProse from "../../components/styling/ProjectProse.astro";
 import SectionTitle from "../../components/SectionTitle";
+import { fade } from "astro:transitions";
 
 // inject components
 const components = { SectionTitle };
@@ -32,7 +33,7 @@ const { Content } = await render(project);
   } -->
   <ProjectProse>
     <div class="flex justify-between items-center">
-      <a><-- back</a>
+      <a href="javascript:history.back()">&lt;-- back</a>
       <h1 class="text-center">{project.data.title}</h1>
       <p class="text-right">{project.data.dateRange}</p>
     </div>

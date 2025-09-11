@@ -1,0 +1,48 @@
+---
+// src/layouts/BaseLayout.astro
+import "@fontsource-variable/inter";
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+
+interface Props {
+  title?: string;
+  bodyClass?: string;
+  bodyStyle?: string;
+}
+
+const { title, bodyClass = "", bodyStyle = "" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" transition:animate="fade" transition:persist>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Clarence Yeh's personal website." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+
+    <title>
+      {title ? `${title} | Clarence Yeh` : "Clarence Yeh | Software Engineer"}
+    </title>
+    <ClientRouter />
+  </head>
+  <body
+    class={`font-anonymous-pro w-full m-0 bg-dark-grey ${bodyClass}`}
+    style={bodyStyle}
+  >
+    <script>
+      const root = document.documentElement; // html element
+      window.addEventListener("astro:navigation-start", () => {
+        root.style.scrollBehavior = "none";
+      });
+      window.addEventListener("astro:navigation-end", () => {
+        root.style.scrollBehavior = "smooth";
+      });
+    </script>
+
+    <slot />
+  </body>
+</html>

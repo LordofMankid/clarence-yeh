@@ -25,10 +25,10 @@ export default function Card(props: CardProps) {
   } = props;
   return (
     <div className={`block no-underline text-inherit  ${className}`}>
-      <div
+      <a
         className={`flex flex-col 
                     ${background ? "" : "transition-transform hover:translate-y-[-4px] duration-200 ease-in-out hover:cursor-pointer"}`}
-        onClick={() => (window.location.href = `/projects/${id}`)}
+        href={`/projects/${id}`}
       >
         {/* <div className="relative aspect-[16/9] rounded-[40px] bg-white shadow-[0px_10px_15px_var(--blue-7)] overflow-hidden"> */}
         {/* {imageSrc ? (
@@ -63,7 +63,7 @@ export default function Card(props: CardProps) {
 
         <motion.div className="relative w-full h-full inline-block">
           <img
-            src="assets/non-svg-icons/proj_background.png"
+            src="/assets/non-svg-icons/proj_background.png"
             className={`block w-full h-full object-cover ${background ? "brightness-60" : ""}`}
           />
           <div className="absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center">
@@ -117,7 +117,7 @@ export default function Card(props: CardProps) {
         <div className="absolute top-6 right-8 flex gap-0.5 z-10">
           {/* {techStackIcons} */}
         </div>
-      </div>
+      </a>
     </div>
   );
 }
