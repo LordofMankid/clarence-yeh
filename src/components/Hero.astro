@@ -10,10 +10,10 @@ import ProfileIcon from "./index/ProfileIcon.astro";
       {hidePic ? null : <ProfileIcon />}
     </div>
     <div>
-      <h2>{title}</h2>
+      <h2 class="text-white">{title}</h2>
     </div>
 
-    <div class="flex flex-row justify-between w-full mt-2">
+    <div class="flex flex-row justify-between w-full">
       <div>
         <p>{subtitle}</p>
       </div>
@@ -22,25 +22,3 @@ import ProfileIcon from "./index/ProfileIcon.astro";
     </div>
   </div>
 </div>
-
-<style>
-  #fun-content {
-    flex-direction: column;
-  }
-
-  @media screen and (min-width: 768px) {
-    p {
-      font-size: medium;
-    }
-
-    #description {
-      width: 400px;
-    }
-
-    #fun-content {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-    }
-  }
-</style>

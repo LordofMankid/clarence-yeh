@@ -19,7 +19,20 @@ const { Content } = await render(blog);
 
 <ProjectLayout>
   <ProjectProse>
-    <h1>{blog.data.title}</h1>
+    <div class="flex justify-between items-start font-ibm-plex-mono">
+      <a href="javascript:history.back()" class="hover:text-amber-1"
+        >&lt;-- back</a
+      >
+      <div class="flex flex-col">
+        <p class="text-right font-ibm-plex-mono font-extralight mt-0 mb-0">
+          {blog.data.title}
+        </p>
+        <p class="text-right font-ibm-plex-mono mt-0 mb-0">
+          {blog.data.date.toLocaleDateString()}
+        </p>
+      </div>
+    </div>
+
     <Content components={components} />
   </ProjectProse>
 </ProjectLayout>

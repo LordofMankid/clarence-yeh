@@ -24,7 +24,7 @@ export default function Header(props: { currentPath: string }) {
             />
             <li>
               <a
-                href={`#${id}`}
+                href={`${id === "projects" ? `/#${id}` : `/${id}`}`}
                 className="text-white hover:text-amber-1 text-2xl no-underline"
               >
                 {label}

@@ -1,5 +1,5 @@
 ---
-title: 'Devlog: month break, and Freebites v1.0.4!'
+title: "Devlog: month break, and Freebites v1.0.4!"
 date: 2025-08-31T04:00:00.000Z
 subtitle: i took a long break huh
 tags:
@@ -8,11 +8,11 @@ tags:
 
 Hi! It's been a while, and that's because I've taken a break, since coding is a lot of work.
 
-<SectionTitle title="Just Kidding." />
+## Just kidding.
 
-Yeah no, I've been busy. I was locking in on some more job application stuff, which I can't really write about, and then [Freebites finally started its launch onto new platforms](https://www.linkedin.com/posts/freebitestufts_hiring-freebites-schoolambassador-activity-7367226181533716480-fv84?utm_source=share\&utm_medium=member_desktop\&rcm=ACoAADf5z6UBgC-lL7QZNOsMVZzzNNDX_-oRuFY)! It's been a while ride setting all of that up, which I'll get into in a bit. I'll honestly probably split each topic into its own little post later, as delving into each issue will take a while and is probably a boring read.
+Yeah no, I've been busy. I was locking in on some more job application stuff, which I can't really write about, and then [Freebites finally started its launch onto new platforms](https://www.linkedin.com/posts/freebitestufts_hiring-freebites-schoolambassador-activity-7367226181533716480-fv84?utm_source=share&utm_medium=member_desktop&rcm=ACoAADf5z6UBgC-lL7QZNOsMVZzzNNDX_-oRuFY)! It's been a wild ride setting all of that up, which I'll get into in a bit. I'll honestly probably split each topic into its own little post later, as delving into each issue will take a while and is probably a boring read.
 
-<SectionTitle title="Freebites is an organization now!" />
+## Freebites is an organization now!
 
 I'll start with the easiest to understand update - we got our Apple Developer account situated transferred into an organization account! So now Freebites doesn't say “Clarence Yeh” anymore, it says “Freebites”!
 
@@ -20,13 +20,13 @@ I'll start with the easiest to understand update - we got our Apple Developer ac
 
 Woohoo!
 
-<SectionTitle title="v1.0.4" />
+## v.1.0.4
 
 Freebites v1.0.4 doesn't have a lot of flashy visual updates, but instead has a lot of infrastructural and backend updates. Unfortunately, that means I don't have a lot of visuals for you(whoever's reading this), but I'll do what I can.
 
 If you've been reading my earlier posts, you'll see that I've mostly been working on the website with Owen, leaving the brunt of the app work to the current leads, Manuel and Keiji. Over the last few weeks, Owen and I got called in to prepare the app for full release - there were some things that needed working on.
 
-<SectionTitle title="Difficulties with having your own `npm` package" />
+## Difficulties with having your own `npm` package
 
 We ran into multiple difficulties when working with the freebites-types npm package that I created better to sync our types across the website and mobile app. I should've just used Prisma…
 
@@ -38,12 +38,12 @@ Yeah… was going slightly insane at 1 AM. It's annoying to have to iterate on t
 
 Secondly difficulty was building for Expo. That was a pain to manage, and I wish I could screenshot the sheer amount of builds we failed over those couple of days. Gradually, sorting out package issues and .npmrc generation issues, we managed to whittle those down and get ready for development.
 
-<SectionTitle title="I become an email expert" />
+## I become an email expert
 
-Something else I was in charge of was trying to figure out why in the goddamn hell every single one of our transactional emails (for email verification) was going into spam. We could simply have a “check spam!” notification, but we noticed that like 50% of people weren't getting past that step. 
+Something else I was in charge of was trying to figure out why in the goddamn hell every single one of our transactional emails (for email verification) was going into spam. We could simply have a “check spam!” notification, but we noticed that like 50% of people weren't getting past that step.
 
 I sent an email to one of those spam checkers, and lo and behold, we had a couple of email delivery red flags:
-![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1756680837/8f604fcb-9a0b-474e-a1d6-e3c3326098d1.png)Yikes…but these were fixable, right? 
+![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1756680837/8f604fcb-9a0b-474e-a1d6-e3c3326098d1.png)Yikes…but these were fixable, right?
 
 I had to log and manage some domain validation stuff, but emails still got delivered to spam. So I signed, took out the wallet, and decided to switch over to Postmark for our new email service, which worked perfectly well.
 

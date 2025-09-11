@@ -3,6 +3,7 @@
 import "@fontsource-variable/inter";
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import ScrollManager from "../components/styling/ScrollManager.astro";
 
 interface Props {
   title?: string;
@@ -30,18 +31,10 @@ const { title, bodyClass = "", bodyStyle = "" } = Astro.props;
     <ClientRouter />
   </head>
   <body
-    class={`font-anonymous-pro w-full m-0 bg-dark-grey ${bodyClass}`}
+    class={`font-anonymous-pro w-full m-0 bg-dark-grey text-white ${bodyClass}`}
     style={bodyStyle}
   >
-    <script>
-      const root = document.documentElement; // html element
-      window.addEventListener("astro:navigation-start", () => {
-        root.style.scrollBehavior = "none";
-      });
-      window.addEventListener("astro:navigation-end", () => {
-        root.style.scrollBehavior = "smooth";
-      });
-    </script>
+    <ScrollManager />
 
     <slot />
   </body>

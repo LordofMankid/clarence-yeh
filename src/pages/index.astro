@@ -1,18 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
 import Projects from "../components/Projects.astro";
-import Skills from "../components/Skills.astro";
-import SectionTitle from "../components/SectionTitle";
-import Header from "../components/Header";
 import LandingHero from "../components/landing/LandingHero";
 import NewIcons from "../components/landing/NewIcons";
-
-const currentPath = Astro.url.pathname;
+import ParallaxBackground from "../components/landing/ParallaxBackground";
 ---
 
 <Layout title="Hello, world!">
-  <Header currentPath={currentPath} />
+  <ParallaxBackground client:load transition:name="background" />
   <LandingHero client:load />
   <NewIcons client:load />
   <div id="projects" class="h-screen">

@@ -1,5 +1,4 @@
-// import { Icon } from "astro-icon/components";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import type { Project } from "../../content.config";
 
 interface CardLink {
@@ -30,37 +29,6 @@ export default function Card(props: CardProps) {
                     ${background ? "" : "transition-transform hover:translate-y-[-4px] duration-200 ease-in-out hover:cursor-pointer"}`}
         href={`/projects/${id}`}
       >
-        {/* <div className="relative aspect-[16/9] rounded-[40px] bg-white shadow-[0px_10px_15px_var(--blue-7)] overflow-hidden"> */}
-        {/* {imageSrc ? (
-  url?: string;
-  techStack: string[];
-  imageSrc?: string;
-  altImagePosition?: string;
-}
-
-export default function Card(props: CardProps) {
-  const { title, subtitle, date, url, techStack, imageSrc, altImagePosition } =
-    props;
-  return (
-    <a href={url} className="block no-underline text-inherit">
-      <div className="flex flex-col transition-transform duration-300 ease-in-out hover:scale-110">
-        <div className="relative aspect-[16/9] rounded-[40px] bg-white shadow-[0px_10px_15px_var(--blue-7)] overflow-hidden">
-          {/* {imageSrc ? (
-            <CldImage
-              src={imageSrc}
-              class={`absolute inset-0 w-full h-full object-cover p-0 m-0 ${altImagePosition}`}
-            />
-          ) : (
-            <CldImage
-              src="no-image_wgtpif"
-              crop={{
-                type: "fill",
-                source: true,
-              }}
-              class ="absolute inset-0 w-full h-full object-fill p-0 m-0"
-            />
-          )} */}
-
         <motion.div className="relative w-full h-full inline-block">
           <img
             src="/assets/non-svg-icons/proj_background.png"
@@ -75,25 +43,36 @@ export default function Card(props: CardProps) {
             <p className="text-2xl font-bold">{caption}</p>
           </div>
           <div
-            className={`absolute top-0 right-0 w-1/2 h-full flex flex-col px-8 pt-24 items-center justify-start gap-10 ${background ? "text-black" : ""}`}
+            className={`absolute top-0 right-0 w-1/2 h-full flex flex-col px-8 items-center justify-start  ${background ? "pt-16 gap-4 text-black" : "pt-24 gap-10"}`}
           >
-            <div className="flex flex-col gap-3">
+            <div
+              className={`flex font-bold flex-col ${background ? "gap-2" : "gap-3"}`}
+            >
               <p className="text-2xl text-center">{project.title}</p>
-              <p className="font-bold leading-5">{project.description}</p>
+              <p
+                className={`font-bold leading-5 ${background ? "text-base" : "text-lg"}`}
+              >
+                {project.description}
+              </p>
             </div>
             <div className="flex flex-col w-full ">
+              {project.dateRange ? (
+                <p
+                  className={`font-bold text-left leading-5  ${background ? "text-base" : "text-lg"}`}
+                >
+                  Timeline: {project.dateRange}
+                </p>
+              ) : null}
               {project.additionalInfo?.map((info, index) => {
                 return (
-                  <p key={index} className="font-bold text-left leading-5">
+                  <p
+                    key={index}
+                    className={`font-bold text-left leading-5  ${background ? "text-base" : "text-lg"}`}
+                  >
                     {info}
                   </p>
                 );
               })}
-              {project.dateRange ? (
-                <p className="font-bold text-left leading-5">
-                  Timeline: {project.dateRange}
-                </p>
-              ) : null}
             </div>
             <div className="flex w-full flex-start flex-col">
               {project.links
@@ -101,7 +80,7 @@ export default function Card(props: CardProps) {
                     return (
                       <a
                         key={link.url}
-                        className="font-bold text-left leading-5 hover:text-amber-1"
+                        className={`font-bold text-left  leading-5 hover:text-amber-1 ${background ? "text-base" : "text-lg"}`}
                         href={link.url}
                         onClick={(e) => e.stopPropagation()} // prevent outer div click
                       >

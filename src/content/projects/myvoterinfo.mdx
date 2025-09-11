@@ -1,33 +1,23 @@
 ---
-title: "MyVoterInfo"
-description: "A hackathon-winning app to check for voter registrations"
+title: MyVoterInfo
 dateRange: "2024"
 publishDate: 2024-02-15T00:00:00.000Z
-techStack: ["reactjs", "firebase", "github", "gcloud"]
-thumbnail: https://res.cloudinary.com/dqjxcxacd/image/upload/v1753132370/thumbnail_avpgxs.png
+description: A hackathon-winning app to check voter registrations
+techStack:
+  - reactjs
+  - firebase
+  - github
+  - gcloud
+thumbnail: >-
+  https://res.cloudinary.com/dqjxcxacd/image/upload/v1753132370/thumbnail_avpgxs.png
+additionalInfo:
+  - "Role: PM, Developer"
+links:
+  - url: "https://devpost.com/software/myvoterinfo"
+    linkText: Devpost
 ---
 
-import SectionTitle from "../../components/SectionTitle";
-import { Image } from "astro:assets";
-import Fridgelink1 from "../../assets/fridgelink/fridgelink1.png";
-import Fridgelink2 from "../../assets/fridgelink/fridgelink2.png";
-import Fridgelink3 from "../../assets/fridgelink/fridgelink3.png";
-import { CldImage } from "astro-cloudinary";
-
-<div className="flex w-full justify-center">
-  <CldImage
-    src="17087130827741_mkni0s"
-    crop={{
-      type: "fill",
-      source: true,
-    }}
-    class="rounded-2xl"
-  />
-</div>
-
-[click here to check this out!](https://keep-mass-beautiful.vercel.app/Demo)
-
-<SectionTitle title="OVERVIEW" />
+## Overview
 
 Tufts JumboCode held its first hackathon in five years, and I worked together with
 my friends Jessie, Lydia, and Yihui to compete. When we talked about problems that
@@ -36,9 +26,13 @@ barrier to entry in many states across the United States, namely the issue of
 voter registrations -- many people get deregistered without being aware. So
 we created the MVP of an app that would tell you if you were ever deregistered.
 
-<SectionTitle title="MY INVOLVEMENT" />
+## My Involvement
 
 I created the authentication system through Firebase, as well as a screen on the
 app where users can see relevant election information in their area, such as
 polling places and their operation hours. I also created a way for users to report
 waiting times to inform other users on the best polling places to go to.
+
+## Demo
+
+[click here to check this out!](https://keep-mass-beautiful.vercel.app/Demo)

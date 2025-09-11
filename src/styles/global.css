@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";  
 @layer base {
@@ -12,10 +13,153 @@
     @apply prose-p:text-lg prose-p:no-underline prose-p:m-0;
   }
   article img, .prose img {
-    @apply rounded-4xl;   /* prose-img doesn't work */
     @apply m-auto;
   }
   
+}
+
+/* JuliaMono Thin (100) */
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* JuliaMono ExtraLight (200) */
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* JuliaMono Light (300) */
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* JuliaMono Regular (400) */
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* JuliaMono Medium (500) */
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* JuliaMono SemiBold (600) */
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* JuliaMono Bold (700) */
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* JuliaMono ExtraBold (800) */
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* JuliaMono Black (900) */
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('/fonts/JuliaMono-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
 }
 
 @theme {
@@ -30,7 +174,11 @@
    --color-amber-1: oklch(75.03% 0.116 62.79);
    --color-dark-grey: oklch(0.2221 0 0);
    --font-anonymous-pro: 'Anonymous Pro', monospace; 
+   --font-jetbrains: 'JetBrainsMonoNL', monospace;
+   --font-ibm-plex-mono: "IBM Plex Mono", monospace;
 }
+
+
 
 html, body {
   scrollbar-width: none;

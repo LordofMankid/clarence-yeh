@@ -1,0 +1,20 @@
+---
+// src/components/ScrollManager.astro
+// No frontmatter needed
+---
+
+<script is:inline>
+  (() => {
+    const root = document.documentElement;
+
+    // Disable smooth scroll before Astro swaps the DOM
+    document.addEventListener("astro:before-preparation", () => {
+      root.style.scrollBehavior = "auto";
+    });
+
+    // Restore smooth scroll after the page has loaded
+    document.addEventListener("astro:page-load", () => {
+      root.style.scrollBehavior = "smooth";
+    });
+  })();
+</script>

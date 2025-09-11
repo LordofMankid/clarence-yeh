@@ -1,5 +1,5 @@
 ---
-title: 'Devlog: learning a use case for useRef'
+title: "Devlog: learning a use case for useRef"
 date: 2025-08-04T04:00:00.000Z
 subtitle: damn i love useRef
 tags:
@@ -12,13 +12,13 @@ Today, I delved deeper into the wonders of Pixi.js and animations on the [Freebi
 
 The basic structure of how we're handling our animations and components are:
 
-* parent component where I manage a ScrollObserver 
-  * \<Application /> component (from pixi.js/react)
-  * \<Application /> component (in my AnimatedPhone component)
+- parent component where I manage a ScrollObserver
+  - \<Application /> component (from pixi.js/react)
+  - \<Application /> component (in my AnimatedPhone component)
 
 Initially, AnimatedPhone had a prop with a state I managed from the parent component, but this state caused a re-renders, which restarted both component's animations entirely, so my screen would start flashing.
 
-<SectionTitle title="How do I stop re-rendering???" />
+## How do I stop re-rendering???
 
 useRef to the rescue!
 
@@ -27,7 +27,6 @@ Because useRef doesn't cause re-renders, I'm free to use these to access whateve
 This allowed me to use useImperativeHandle to create expose functions from the component that I could use in the parent. Note that you shouldn't overuse this hook, only when absolutely necessary [as per the docs](https://react.dev/reference/react/useImperativeHandle)(I couldn't think of a way to use props, especially with these animations depending on NOT rerendering).
 
 This is my interface for AnimatedPhoneRef:
- 
 
 ```ts
 export interface AnimatedPhoneRef {
@@ -47,22 +46,22 @@ I'm sure there's a better way, but for now I just took the current progress and 
 ```ts
 onUpdate: (self) => {
   const progress = self.progress; // normalized between 0 to 1
-  
+
   const scrollDirection =
     progress > lastProgress.current ? "down" : "up";
   lastProgress.current = progress;
-  
+
   // Define breakpoints
   const swipeBreakpoint = 0.55;
   const notificationBreakpoint = 0.85;
-  
+
   // Track scroll direction
   if (
     scrollDirection !== animationState.current.lastScrollDirection
   ) {
     animationState.current.lastScrollDirection = scrollDirection;
   }
-  
+
   // SWIPE ANIMATION
   if (
     scrollDirection === "down" &&
@@ -72,7 +71,7 @@ onUpdate: (self) => {
     // Fire swipe animation
     animationState.current.swipeTriggered = true;
     phoneRef.current?.fireAnimation("swipe", "forward");
-  } 
+  }
 
 // ...it continues here...
 ```
