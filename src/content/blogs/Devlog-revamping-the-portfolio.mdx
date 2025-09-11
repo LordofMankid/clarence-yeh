@@ -1,0 +1,25 @@
+---
+title: 'Devlog: continuing to revamp the portfolio'
+date: 2025-08-12T04:00:00.000Z
+subtitle: better this time
+tags:
+  - portfolio
+---
+
+Today I got to work on my portfolio. Well, I started a few days ago, but I didn't actually get much done. I decided to use the Framer's `motion dev` package to get some animations in.
+
+<SectionTitle title="anime.js vs motion" />
+
+anime.js is lightweight and powerful, but I'm using a lot of React. anime.js uses vanilla JS, which can absolutely be used for React. But I'm using a lot of React, with some HTML in my .`astro` files. I think motion is just a bit simpler when I'm using React as there's more React based documentation.
+
+<SectionTitle title="landing pages and project cards" />
+
+my friend Sarah updated the designs a little bit and I did some cleanup on the landing page:
+
+![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1755031407/3df32e8c-6192-41b1-85cc-2ad392870f68.png)it's looking kinda nice now, but the parallax effect in the background wasn't playing nice when resizing the windows. I was doing work with friends and thus not super engaged, so I just hacked together a super temporary solution that scaled the image up and down based on window size. I'm probably just doing something wrong, but I'll revisit this later.
+
+I also started working on the new project card component. I want this to be more of a “fantasy” kind of vibe because that's what I'm into, so my project cards are going to be more like pieces of paper:
+
+![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1755031863/92a6f785-b1e8-409d-bf39-85e99b9266ac.png)
+
+for easier access, i'll have a full list of my projects in a simple list below the cards, as each card is pretty big. i now need to change up the props and type up so i can hook them up again to TinaCMS, but I want to wait until I'm sure of the schema again before I do so again.
