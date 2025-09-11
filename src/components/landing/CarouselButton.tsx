@@ -1,12 +1,9 @@
-import React from "react";
-
 interface CarouselButtonProps {
   onClick?: () => void;
-  text?: string;
   direction?: "reverse";
 }
 export default function CarouselButton(props: CarouselButtonProps) {
-  const { onClick, direction, text } = props;
+  const { onClick, direction } = props;
 
   return (
     <div onClick={onClick} className="hover:scale-105">

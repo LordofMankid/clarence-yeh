@@ -1,10 +1,6 @@
 import { motion } from "framer-motion";
 import type { Project } from "../../content.config";
 
-interface CardLink {
-  url: string;
-  linkText: string;
-}
 interface CardProps {
   caption?: string;
   id: string;
