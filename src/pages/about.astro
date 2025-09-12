@@ -1,4 +1,5 @@
 ---
+import LinkIcons from "../components/atoms/LinkIcons";
 import Hero from "../components/Hero.astro";
 import ResumeItem from "../components/ResumeItem.astro";
 import SectionTitle from "../components/SectionTitle";
@@ -6,14 +7,13 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="world">
-  <Hero
-    title="hey there, i'm just clarence"
-    subtitle="i like making YouTube videos and playing with my cat"
-  />
-  <hr class="border-1 w-[78vw] bg-blue-6 my-14 m-auto" />
-  <div class="flex flex-row w-[80vw] item-start justify-between m-auto">
-    <SectionTitle title="EXPERIENCE" notBlock={true} />
-    <div class="flex flex-col flex-5/12 gap-4">
+  <div class="flex flex-row w-[80vw] item-start pt-60 justify-between m-auto">
+    <div class="flex flex-col flex-1/3 justify-start">
+      <h2 class="text-white m-0">Clarence Yeh</h2>
+      <p class="text-white text-xl">software engineer</p>
+      <LinkIcons altStyle="h-9" altContainerStyle="mt-1" />
+    </div>
+    <div class="flex flex-col flex-2/3 gap-4">
       <ResumeItem
         date="JULY 2023 - PRESENT"
         title="Co-Founder, Tech Lead"
@@ -21,9 +21,9 @@ import Layout from "../layouts/Layout.astro";
       >
         <div class="flex flex-col gap-3">
           <p class="text-base">
-            Led 8 developers and 2 designers to build, launch, and support a
-            React Native app (Expo, TypeScript, Node.js, MongoDB, Firebase)
-            dedicated to reducing food waste on college campuses.
+            Leading 8 developers and 2 designers to build, launch, and support a
+            React Native app dedicated to reducing food waste on college
+            campuses.
           </p>
 
           <p class="text-base">
@@ -33,7 +33,7 @@ import Layout from "../layouts/Layout.astro";
           <p class="text-base">
             Designed and implemented REST APIs for core features(posting,
             commenting, blocking), managed backend infrastructure and Firebase
-            auth, and reviewed 100+ PRs for quality assurance.
+            auth.
           </p>
           <p class="text-base">
             Pitched the app in entrepreneurship competitions, raising $5,000+ in
@@ -47,14 +47,14 @@ import Layout from "../layouts/Layout.astro";
         organization="JumboCode: English At Large"
       >
         <p class="text-base">
-          Leading the development of a Next.js/PostgreSQL library webapp to
-          serve immigrant communities in the Greater Boston Area.
+          Led the development of a Next.js/PostgreSQL library webapp to serve
+          immigrant communities in the Greater Boston Area.
         </p>
       </ResumeItem>
       <ResumeItem
         date="MAY - AUG 2024"
         title="Software Engineer Intern"
-        organization="Markit AI (formerly Markit Social)"
+        organization="Markit AI"
       >
         <div class="flex flex-col gap-3">
           <div class="text-base">
@@ -82,6 +82,4 @@ import Layout from "../layouts/Layout.astro";
       </ResumeItem>
     </div>
   </div>
-
-  <hr class="border-1 w-[78vw] bg-blue-6 my-14 m-auto" />
 </Layout>

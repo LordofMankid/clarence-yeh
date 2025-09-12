@@ -14,29 +14,45 @@ export default function LandingHero() {
 
   return (
     <motion.div
-      style={{ opacity }}
-      className="flex flex-col h-[calc(100vh-192px)] w-screen justify-center pt-28"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <h1 className="text-white text-8xl font-bold mx-auto">Clarence Yeh</h1>
-      <h2 className="text-white text-2xl font-semibold mt-4 mx-auto text-center">
-        currently co-founder & cto of{" "}
-        <a
-          href="https://freebites.org"
-          target="_blank"
-          className="underline text-inherit font-semibold"
+      <motion.div
+        style={{ opacity }}
+        className="flex flex-col h-[calc(100vh-192px)] w-screen justify-center pt-28"
+      >
+        <h1 className="text-white text-8xl font-bold mx-auto">Clarence Yeh</h1>
+        <h2 className="text-white text-2xl font-semibold mt-4 mx-auto text-center">
+          currently co-founder & cto of{" "}
+          <a
+            href="https://freebites.org"
+            target="_blank"
+            className="underline text-inherit font-semibold hover:text-amber-1"
+          >
+            Freebites
+          </a>
+          <br />
+          previously software engineer at{" "}
+          <a
+            href="https://markitai.com/"
+            target="_blank"
+            className="underline text-inherit font-semibold hover:text-amber-1"
+          >
+            Markit AI
+          </a>
+        </h2>
+        <motion.a
+          href="/other/Clarence Yeh - Resume.pdf"
+          className="underline text-white text-center text-lg hover:text-amber-1"
+          download
+          initial={{ opacity: 0, y: 10 }} // start hidden + shifted down
+          animate={{ opacity: 1, y: 0 }} // fade in + slide up
+          transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }} // 1s delay
         >
-          Freebites
-        </a>
-        <br />
-        previously software engineer at{" "}
-        <a
-          href="https://markitai.com/"
-          target="_blank"
-          className="underline text-inherit font-semibold"
-        >
-          Markit AI
-        </a>
-      </h2>
+          check out my resume
+        </motion.a>
+      </motion.div>
     </motion.div>
   );
 }

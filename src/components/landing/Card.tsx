@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { Project } from "../../content.config";
+import TechStackIcon from "../atoms/TechStackIcon";
 
 interface CardProps {
   caption?: string;
@@ -10,14 +11,7 @@ interface CardProps {
 }
 
 export default function Card(props: CardProps) {
-  const {
-    // techStackIcons,
-    background,
-    project,
-    caption,
-    id,
-    className,
-  } = props;
+  const { background, project, caption, id, className } = props;
   return (
     <div className={`block no-underline text-inherit  ${className}`}>
       <a
@@ -86,12 +80,23 @@ export default function Card(props: CardProps) {
                   })
                 : null}
             </div>
+            <div
+              className={`absolute flex ${
+                background
+                  ? "bottom-16 right-12 gap-1"
+                  : "bottom-24 right-12 gap-1"
+              } `}
+            >
+              {project.techStack.map((icon) => (
+                <TechStackIcon
+                  name={icon}
+                  size={background ? 20 : 24}
+                  altStyle={background ? "brightness-60" : ""}
+                />
+              ))}
+            </div>
           </div>
         </motion.div>
-
-        <div className="absolute top-6 right-8 flex gap-0.5 z-10">
-          {/* {techStackIcons} */}
-        </div>
       </a>
     </div>
   );

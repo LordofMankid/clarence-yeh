@@ -2,14 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import Projects from "../components/Projects.astro";
 import LandingHero from "../components/landing/LandingHero";
-import NewIcons from "../components/landing/NewIcons";
+import JunStudioPopup from "../components/landing/JunStudioPopup";
 import ParallaxBackground from "../components/landing/ParallaxBackground";
+import VersionNumber from "../components/landing/VersionNumber";
 ---
 
 <Layout title="Hello, world!">
   <ParallaxBackground client:load transition:name="background" />
   <LandingHero client:load />
-  <NewIcons client:load />
+  <JunStudioPopup client:load />
+  <VersionNumber client:load />
   <div id="projects" class="h-screen">
     <Projects />
   </div>
