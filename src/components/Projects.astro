@@ -1,7 +1,7 @@
 ---
 import Carousel from "./landing/Carousel";
 import { getCollection } from "astro:content";
-import ProjectHeader from "./ProjectHeader";
+// import ProjectHeader from "./ProjectHeader";
 const projects = await getCollection("projects");
 const projectArray = projects
   .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())

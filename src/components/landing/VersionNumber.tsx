@@ -20,7 +20,7 @@ export default function VersionNumber() {
         style={{ opacity }}
         className="absolute flex flex-col mt-14 xl:right-48"
       >
-        <p className="text-white">v0.1.1</p>
+        <p className="text-white">v2.1.1</p>
       </motion.div>
     </motion.div>
   );

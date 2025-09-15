@@ -89,6 +89,7 @@ export default function Card(props: CardProps) {
             >
               {project.techStack.map((icon) => (
                 <TechStackIcon
+                  key={icon}
                   name={icon}
                   size={background ? 20 : 24}
                   altStyle={background ? "brightness-60" : ""}

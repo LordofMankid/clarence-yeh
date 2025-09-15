@@ -5,6 +5,7 @@ import LandingHero from "../components/landing/LandingHero";
 import JunStudioPopup from "../components/landing/JunStudioPopup";
 import ParallaxBackground from "../components/landing/ParallaxBackground";
 import VersionNumber from "../components/landing/VersionNumber";
+import NowPlayingWidget from "../components/landing/NowPlaying";
 ---
 
 <Layout title="Hello, world!">
@@ -12,6 +13,9 @@ import VersionNumber from "../components/landing/VersionNumber";
   <LandingHero client:load />
   <JunStudioPopup client:load />
   <VersionNumber client:load />
+
+  <NowPlayingWidget client:load />
+
   <div id="projects" class="h-screen">
     <Projects />
   </div>

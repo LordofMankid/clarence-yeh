@@ -1,0 +1,128 @@
+---
+title: 'Devlog: i made a Spotify widget for my portolio'
+date: 2025-09-15T04:00:00.000Z
+subtitle: mmm spotify
+tags:
+  - portfolio
+---
+
+## What am I listening to?
+
+While there's certainly a lot of cleanup to do on my portfolio site, I decided to add my first widget to the portfolio site: a “now playing:” widget that hooks up to my Spotify account so you can see what I'm listening to (or at least what I last listened to).
+
+![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1757976270/1e7c3439-1fc8-4d96-ab5c-0da0b65d8b06.png)
+
+## Is making a Spotify widget that hard?
+
+Nope! It only takes a few hours and it's a fun little exercise on using the [Spotify Developer API](https://developer.spotify.com/documentation/web-api). There's definitely some pre-built widgets out there that you can embed that use [last.fm](https://www.last.fm/api) API, which auto tracks your history and stuff, but I want to be able to customize the styling myself, so I decided to connect directly to the Spotify API and [get what I'm playing](https://developer.spotify.com/documentation/web-api/reference/get-the-users-currently-playing-track) through a call to [https://api.spotify.com/v1/me/player/currently-playing](https://api.spotify.com/v1/me/player/currently-playing), with a fallback to Spotify's recently-played call that I can also access via their API.
+
+## What's the flow?
+
+I don't make tutorials, but maybe this will point you in the right direction. What you need is straightforward flow, but getting what you need is a bit more roundabout:
+
+### what i need
+
+* credentials to connect to Spotify API
+
+that's literally it lol, you also need:
+
+* a website to display the widget
+* a backend to make the call to Spotify API (technically optional but i wouldn't use your credentials on the frontend)
+
+### how to get credentials
+
+First, I set up a Spotify developer account and created an app under that account, where I could grab the credentials I needed and add them to my .env. This allows Spotify to know that my portfolio site is allowed to grab my listening history.
+
+Secondly, to be able to stay authenticated, I had to follow [this tutorial](https://developer.spotify.com/documentation/web-api/tutorials/code-flow) to get my [refresh token](https://developer.spotify.com/documentation/web-api/tutorials/refreshing-tokens), because access tokens expire and you'd want this refresh token to tell you what's up.
+
+### a janky note on refresh token fetching
+
+Note that this tutorial assumes you want anyone to be able to log in with their Spotify account, so they have it hooked up with functions and suggest a callback function. Now, I could do that, but:
+
+1. i only care about myself
+2. i would need to set up an express server and two separate endpoints and stuff and frontend a page calling those endpoints, then navigate to the browser to trigger the login, which would redirect…yadda yadda
+3. i'm lazy
+
+Instead I just pasted the first API call to [https://accounts.spotify.com/authorize ](https://accounts.spotify.com/authorize)into my browser with my credentials, which triggered the login (so I don't need to make my own temporary page and server for that!).
+
+I copy pasted the code parameter (which gets returned via the browser's URL) directly into the next call to get my refresh token. This one doesn't require a backend or any endpoints at all, just a simple getRefreshToken.js with that second API call (with the correct headers, etc) that i ran locally with node getRefreshToken.js, which spit out what I needed! Hooray!
+
+### integration into my site
+
+now that i have the credentials, it's just a regular api call! as always, you should run api calls through your own backend if possible and not through the frontend.
+
+I'm using Vercel serverless functions (no Next.js), so the function setup or file structure will vary depending on your platform. The code in my endpoint in /api/now-playing.js looks like this:
+
+```javascript
+// authenticate with my Spotify credentials and my hard-won refresh token
+const tokenResponse = await fetch("https://accounts.spotify.com/api/token", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded",
+    Authorization:
+      "Basic " +
+      Buffer.from(CLIENT_ID + ":" + CLIENT_SECRET).toString("base64"),
+  },
+  body: new URLSearchParams({
+    grant_type: "refresh_token",
+    refresh_token: REFRESH_TOKEN,
+  }),
+});
+
+const tokenData = await tokenResponse.json();
+const accessToken = tokenData.access_token;
+
+if (!accessToken) {
+  return res
+    .status(400)
+    .json({ error: "Could not refresh access token", details: tokenData });
+}
+
+// Try to get currently playing track
+const nowPlayingResponse = await fetch(
+  "https://api.spotify.com/v1/me/player/currently-playing",
+  {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  }
+);
+
+// parse and whatever, i don't wanna post the whole thing lol
+```
+
+and the frontend code (i did some temp styling as i don't have a design for it yet) where song is loading into a useState once i fetch from /api/now-playing.
+
+```ts
+  return (
+    <div className="absolute top-12 right-30 flex items-center gap-3 p-2 ">
+      {song.albumArt && (
+        <img
+          src={song.albumArt}
+          alt={song.track}
+          className="w-12 h-12 m-0 rounded"
+        />
+      )}
+      <div>
+        <p className="font-semibold text-base text-white m-0 p-0">
+          {song.track}
+        </p>
+        <p className="text-sm text-white m-0 p-0">{song.artist}</p>
+        <a
+          href={song.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-amber-1 m-0 p-0"
+        >
+          Listen on Spotify
+        </a>
+      </div>
+    </div>
+  );
+```
+
+Sorry I don't have a lot of images, it's just a widget, but I hope this kind of helps anyone else trying to do their own spotify calls. It's a pretty quick setup, honestly and a good first one! Signing off.
+
+update: i had to switch to JavaScript for my /api endpoints because i was getting hella errors with TypeScript and astro? Not sure why, though I'm kind of a noob at setting up endpoints and stuff on Vercel without Next.js. Oops.
+
+![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1757979731/fc6b3eea-1cfc-470a-bd15-d146860343e5.png)
