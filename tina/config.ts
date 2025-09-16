@@ -118,6 +118,20 @@ export default defineConfig({
         ],
       },
       {
+        name: "changelog",
+        label: "changelog",
+        path: "src/content/changelog",
+        format: "md",
+        fields: [
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+          },
+        ],
+      },
+      {
         name: "project",
         label: "Projects",
         path: "src/content/projects",
