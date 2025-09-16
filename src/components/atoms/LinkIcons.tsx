@@ -5,11 +5,13 @@ interface LinkIconsProps {
 export default function LinkIcons(props: LinkIconsProps) {
   const { altStyle, altContainerStyle } = props;
   return (
-    <div className={`flex ${altContainerStyle ? altContainerStyle : ""}`}>
+    <div
+      className={`flex gap-1.5 ${altContainerStyle ? altContainerStyle : ""}`}
+    >
       <a href="https://github.com/lordofmankid" target="_blank">
         <img
           src="/assets/non-svg-icons/github_colored.png"
-          className={`m-0 ${altStyle ? altStyle : ""}`}
+          className={`block m-0 hover:scale-105  ${altStyle ? altStyle : ""}`}
         />
       </a>
       <a
@@ -18,13 +20,13 @@ export default function LinkIcons(props: LinkIconsProps) {
       >
         <img
           src="/assets/non-svg-icons/linkedin_colored.png"
-          className={`m-0 ${altStyle ? altStyle : ""}`}
+          className={`block m-0 hover:scale-105 ${altStyle ? altStyle : ""}`}
         />
       </a>
       <a href="https://www.youtube.com/@itsclarence7685" target="_blank">
         <img
           src="/assets/non-svg-icons/youtube_colored.png"
-          className={`m-0 ${altStyle ? altStyle : ""}`}
+          className={`block m-0 hover:scale-105 translate-y-px ${altStyle ? altStyle : ""}`}
         />
       </a>
     </div>

@@ -51,7 +51,7 @@ function NowPlayingWidget() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <motion.div className="flex text-white hover:text-amber-1 items-center gap-3 p-2 ">
+            <motion.div className="flex text-white hover:text-amber-1 items-center gap-3 p-2">
               {song.albumArt && (
                 <div className="relative flex w-12 h-12">
                   <img
@@ -80,15 +80,15 @@ function NowPlayingWidget() {
                     {song.track}
                   </p>
                   <span
-                    className="w-0.5 flex-shrink-0 animate-bounce h-2 bg-current 
+                    className="w-0.5 flex-shrink-0 animate-bounce h-2 translate-y-0.5 bg-current 
                               group-hover:opacity-0 transition-opacity duration-300"
                   />
                   <span
-                    className="w-0.5 flex-shrink-0 animate-bounce h-3 bg-current 
+                    className="w-0.5 flex-shrink-0 animate-bounce h-3 translate-y-0.5  bg-current 
                               group-hover:opacity-0 transition-opacity duration-300  [animation-delay:0.2s]"
                   />
                   <span
-                    className="w-0.5 flex-shrink-0 animate-bounce h-2 bg-current 
+                    className="w-0.5 flex-shrink-0 animate-bounce h-2 translate-y-0.5  bg-current 
                               group-hover:opacity-0 transition-opacity duration-300  [animation-delay:0.4s]"
                   />
                 </div>
