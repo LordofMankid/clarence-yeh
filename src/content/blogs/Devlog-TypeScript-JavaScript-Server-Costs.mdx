@@ -1,0 +1,100 @@
+---
+title: 'Devlog: TypeScript, JavaScript, Server Costs'
+date: 2025-09-23T04:00:00.000Z
+subtitle: money money money
+tags:
+  - freebites
+---
+
+## I saved money going from TypeScript to JavaScript.
+
+But you should still use TypeScript 100% of the time. The type safety alone makes it way more scalable and easy to work with in large applications.
+
+So what do I mean? My startup, Freebites, is currently hosted on GCP, and like all backend service providers, it costs money to maintain server costs. 
+
+![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1758728007/58e642d1-b411-4b8d-aa49-c54f78bac545.png)
+
+Currently, I have to allocate 1GB of memory to the backend, which comes out to about $10 a month. It doesn't seem like much, but that adds up to $120 a year, which makes me rethink all of my subscriptions now that I think about it…
+
+Anyway, my point is:
+
+## Reduce Memory Usage —> Reduce Cost $$
+
+Was this possible? Well a quick local deployment on Docker showed that my normal idle server usage was about 500MB.
+
+![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1758671971/771de5b0-325c-48aa-9a55-a4f575d9df01.png)
+
+Well then, why not just set your instance to use 500MB? Well I tried, and it started crashing occasionally, and I'm guessing that's because there are some instances where the memory usages spikes a little bit, so I get it 1GB for “wiggle room," because crashing in production is a big no-no.
+
+Usually, optimization is kind of hard, but luckily, I wrote this backend two years ago as a junior in college, having no idea about backends and profiling and how to deploy things properly. I still have so much to learn, but at least I'm taking steps in the right direction.
+
+## What can be optimized?
+
+There are a few things:
+
+* deploy only the backend on Cloud Run (I know, this is logical but hear me out)
+* switch over to JavaScript
+
+### Deploying the right things
+
+Firstly, my backend and frontend are in the same project (which is fine as long as you set things up okay), but I was sending both the frontend and the backend to Cloud Run to be deployed. 
+
+Just having them both there means more lines of code sitting in there, which is was am issue, and something I knew when setting it up, but I could not figure out for the life of me how to isolate it by only sending the backend to Cloud Run.![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1758728757/60e974cb-50b4-47d4-9469-5b8cbdde0f4c.png)
+
+It wasn't until I worked a bit more with the .yaml configuration I had in Cloud Run to do some other stuff that I found one of our build steps, which looked like this:
+
+
+```yaml
+      - >-
+        docker build --no-cache --build-arg -t
+        $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$_REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
+        -f Dockerfile .
+```
+
+If you notice the Dockerfile path, the Dockerfile was in the root, and the next . which is the build context is in the root of the project. This was where I had to set up the build context to point to my backend/ folder, to something like:
+
+```yaml
+ - >-
+        docker build --no-cache --build-arg -t
+        $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$_REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
+        -f backend/Dockerfile backend
+```
+
+We'd have to move the location of the Dockerfile accordingly, as well.
+
+### Small note:
+
+I did mention that it was okay to have everything in one repo. It has some pros:
+
+* Shared models, types, utils
+* Easier to manage and iterate quickly for a small team
+* Local development is a lot easier here
+
+The one caveat is that you'll want to have a maintain a clear separation of concerns, or else this kind of build context is not possible. A quick couple of things to watch out for:
+
+* keep frontend packages on the frontend, backend packages on the backend. A good way to check is that you should be able to cd into your backend (so you can't see anything), start it up in Docker and have it work
+* fundamental habit, but all API calls should route through to your backend (don't call external APIs directly from the front end)
+* eventually, shared npm packages might be the way, which I've already had to set up as our website is on a different repo.
+
+### Okay, TypeScript and JavaScript…
+
+Note that TypeScript compiles in JavaScript anyway, so they'll actually have the same performance. But the thing is, we weren't doing that in the backend.
+
+We use node.js, which natively is a JavaScript thing. But we used ts-node, which looks like this:
+
+
+```json
+"cloud-server": "cross-env APP_ENV=production ts-node backend/server.ts"
+```
+
+But the issue with ts-node, while it's great, is that we actually kept all the TypeScript tooling and stuff (because we didn't know any better) with ts-node , etc as well as loading a few unneeded devDependencies that weren't going to be used in production anyway. 
+
+We left it in so we can actually get the app released, but we didn't know how much that actually increased performance.
+
+
+So we now precompile everything into the dist/ file with a simple tsc script, which was straightforward, but our tsconfig wasn't strict enough, meaning over the year where we were developing, we had about 500 TypeScript errors to fix first. Yay!
+
+Anyway, once this got squared away, the Dockerfile was moved, we had almost a 6x decrease in memory usage, from 492MB down to 75MB.![](https://res.cloudinary.com/dqjxcxacd/image/upload/v1758671986/88bd7feb-31cd-4f5b-9d8b-c90173924d35.png)
+This means that I'll be able to allocate less memory, down to 500MB and perhaps even 250 MB, which will bring down our costs to just $30/year. 
+
+Obviously as people start using it, usage will go up again, but in the meantime, this adds up. To $90 saved/year, which we can put towards other services to make the Freebites experience better.
