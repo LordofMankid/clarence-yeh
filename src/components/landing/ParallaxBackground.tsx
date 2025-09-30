@@ -2,7 +2,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function ParallaxBackground() {
-  const { scrollY, scrollYProgress } = useScroll();
+  const { scrollY } = useScroll();
 
   const y = useTransform(scrollY, (value) => -value * 0.4);
   return (
