@@ -22,7 +22,7 @@ export default function Card(props: CardProps) {
         <motion.div className="relative w-full h-full inline-block">
           <img
             src="/assets/non-svg-icons/proj_background.png"
-            className={`block w-full h-full object-cover ${background ? "brightness-60" : ""}`}
+            className={`block w-full h-full object-cover m-0 ${background ? "brightness-60" : ""}`}
           />
           <div className="absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center">
             <img
@@ -33,14 +33,16 @@ export default function Card(props: CardProps) {
             <p className="text-2xl font-bold">{caption}</p>
           </div>
           <div
-            className={`absolute top-0 right-0 w-1/2 h-full flex flex-col px-8 items-center justify-start  ${background ? "pt-16 gap-4 text-black" : "pt-24 gap-10"}`}
+            className={`absolute top-0 right-0 w-1/2 h-full flex flex-col px-4 sm:px-8 items-center justify-start  ${background ? "pt-8 gap-4 text-black" : "pt-8 gap-5 sm:pt-16 sm:gap-10"}`}
           >
             <div
               className={`flex font-bold flex-col ${background ? "gap-2" : "gap-3"}`}
             >
-              <p className="text-2xl text-center">{project.title}</p>
+              <p className="leading-5 sm:leading-10 text-base sm:text-2xl text-center">
+                {project.title}
+              </p>
               <p
-                className={`font-bold leading-5 ${background ? "text-base" : "text-lg"}`}
+                className={`font-bold leading-3.5 sm:leading-5 ${background ? "sm:text-base" : "text-sm sm:text-lg"}`}
               >
                 {project.description}
               </p>
@@ -48,16 +50,17 @@ export default function Card(props: CardProps) {
             <div className="flex flex-col w-full ">
               {project.dateRange ? (
                 <p
-                  className={`font-bold text-left leading-5  ${background ? "text-base" : "text-lg"}`}
+                  className={`font-bold text-left leading-3.5 sm:leading-5 ${background ? "text-base" : "text-sm sm:text-lg"}`}
                 >
-                  Timeline: {project.dateRange}
+                  <span className="hidden sm:inline">Timeline: </span>
+                  {project.dateRange}
                 </p>
               ) : null}
               {project.additionalInfo?.map((info, index) => {
                 return (
                   <p
                     key={index}
-                    className={`font-bold text-left leading-5  ${background ? "text-base" : "text-lg"}`}
+                    className={`font-bold text-left leading-3.5 sm:leading-5 ${background ? "text-base" : "text-sm sm:text-lg"}`}
                   >
                     {info}
                   </p>
@@ -70,7 +73,7 @@ export default function Card(props: CardProps) {
                     return (
                       <a
                         key={link.url}
-                        className={`font-bold text-left  leading-5 hover:text-amber-1 ${background ? "text-base" : "text-lg"}`}
+                        className={`font-bold text-left leading-3.5 sm:leading-5 hover:text-amber-1 ${background ? "text-base" : "text-sm sm:text-lg"}`}
                         href={link.url}
                         onClick={(e) => e.stopPropagation()} // prevent outer div click
                       >
@@ -81,7 +84,7 @@ export default function Card(props: CardProps) {
                 : null}
             </div>
             <div
-              className={`absolute flex ${
+              className={`hidden sm:flex absolute ${
                 background
                   ? "bottom-16 right-12 gap-1"
                   : "bottom-24 right-12 gap-1"

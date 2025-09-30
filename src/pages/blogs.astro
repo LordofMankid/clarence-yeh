@@ -5,9 +5,13 @@ const blogs = await getCollection("blogs");
 ---
 
 <Layout>
-  <h2
-    class="text-white pt-40 md:w-[80vw] xl:w-[65vw] 2xl:w-[50vw] m-auto my-0 py-0"
-  >
+  <div class="md:w-[85vw] xl:w-[70vw] 2xl:w-[55vw] m-auto pt-40 pb-10 block">
+    <a
+      href="javascript:history.back()"
+      class="text-lg text-white hover:text-amber-1">&lt;-- back</a
+    >
+  </div>
+  <h2 class="text-white md:w-[80vw] xl:w-[65vw] 2xl:w-[50vw] m-auto my-0 py-0">
     Blog
   </h2>
   <ul class="list-none md:w-[80vw] xl:w-[65vw] 2xl:w-[50vw] m-auto pt-5">

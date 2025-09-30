@@ -23,7 +23,7 @@ function NowPlayingWidget() {
   }, []);
 
   return (
-    <div className="absolute top-12 right-30 rounded-md transition-all duration-200 ">
+    <div className="absolute top-12 right-4 sm:top-12 sm:right-30 rounded-md transition-all duration-200 ">
       <AnimatePresence exitBeforeEnter>
         {loading || !song ? (
           <motion.div
@@ -33,10 +33,10 @@ function NowPlayingWidget() {
             transition={{ duration: 0.4 }}
             className="flex items-center gap-3 p-2 animate-pulse"
           >
-            <div className="w-12 h-12 rounded-md bg-gray-700" />
+            <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-md bg-gray-700" />
             <div className="flex flex-col gap-1">
-              <div className="h-5 w-36 bg-gray-700 rounded" />
-              <div className="h-4 my-1 w-24 bg-gray-700 rounded" />
+              <div className="h-3 sm:h-5 w-28 sm:w-36 bg-gray-700 rounded" />
+              <div className="h-3 sm:h-4 my-1 w-24 bg-gray-700 rounded" />
             </div>
           </motion.div>
         ) : (
@@ -53,11 +53,11 @@ function NowPlayingWidget() {
           >
             <motion.div className="flex text-white hover:text-amber-1 items-center gap-3 p-2">
               {song.albumArt && (
-                <div className="relative flex w-12 h-12">
+                <div className="relative flex w-8 h-8 sm:w-12 sm:h-12">
                   <img
                     src={song.albumArt}
                     alt={song.track}
-                    className="block w-12 h-12 m-0 rounded-md filter transition-all duration-400 group-hover:brightness-75"
+                    className="block w-8 h-8 sm:w-12 sm:h-12 m-0 rounded-md filter transition-all duration-400 group-hover:brightness-75"
                   />
                   {/* audio visualizer, appears on hover */}
                   <div
@@ -74,9 +74,9 @@ function NowPlayingWidget() {
                   </div>
                 </div>
               )}
-              <div className="flex flex-col min-w-36 max-w-36 overflow-hidden group-hover:max-w-[1000px] transition-[max-width] duration-200">
+              <div className="flex flex-col min-w-28 max-w-28 sm:min-w-36 sm:max-w-36 overflow-hidden group-hover:max-w-[1000px] transition-[max-width] duration-200">
                 <div className="flex items-center gap-0.5 h-5 ">
-                  <p className="font-semibold text-base truncate pr-1 ">
+                  <p className="font-semibold text-xs sm:text-base truncate pr-1 ">
                     {song.track}
                   </p>
                   <span
@@ -93,7 +93,9 @@ function NowPlayingWidget() {
                   />
                 </div>
 
-                <p className="text-sm m-0 p-0 truncate">{song.artist}</p>
+                <p className="text-xs sm:text-sm m-0 p-0 truncate">
+                  {song.artist}
+                </p>
               </div>
             </motion.div>
           </motion.a>

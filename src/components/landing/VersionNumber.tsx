@@ -18,7 +18,7 @@ export default function VersionNumber() {
     >
       <motion.div
         style={{ opacity }}
-        className="absolute flex flex-col mt-14 xl:right-48"
+        className="absolute flex-col mt-14 sm:right-24 xl:right-48 hidden sm:flex"
       >
         <a
           className="text-white text-lg no-underline hover:text-amber-1"

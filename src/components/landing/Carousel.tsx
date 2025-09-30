@@ -47,15 +47,27 @@ const Carousel = (props: LandingCarouselProps) => {
             className="lg:w-md xl:w-lg aspect-[9/5] "
           />
         </div>
-        <div className=" absolute flex flex-col items-center justify-center z-20 w-full translate-y-40">
-          <div className="flex flex-row items-center justify-center gap-8 z-20 w-full">
-            <CarouselButton onClick={prev} direction={"reverse"} />
+        <div className=" absolute flex flex-col items-center justify-center z-20 w-[90vw] sm:w-full translate-y-40 gap-4">
+          <div className="flex flex-row items-center justify-center gap-8 z-20 w-[90vw] sm:w-full">
+            <CarouselButton
+              onClick={prev}
+              direction={"reverse"}
+              altStyle="hidden sm:block"
+            />
             <Card
               id={visible[1].id}
               project={visible[1].data}
-              className="sm:w-xl lg:w-2xl aspect-[9/5] "
+              className="sm:w-xl lg:w-2xl aspect-[9/5]"
             />
-            <CarouselButton onClick={next} />
+            <CarouselButton onClick={next} altStyle="hidden sm:block" />
+          </div>
+          <div className="flex gap-12 sm:hidden">
+            <CarouselButton
+              onClick={prev}
+              direction={"reverse"}
+              altStyle="sm:hidden block w-12"
+            />
+            <CarouselButton onClick={next} altStyle="block sm:hidden w-12" />
           </div>
           <div className="flex flex-row gap-4 items-center">
             {projects.map((project) => {
@@ -63,13 +75,14 @@ const Carousel = (props: LandingCarouselProps) => {
                 <div key={project.id}>
                   <img
                     src="/assets/non-svg-icons/ticker.png"
-                    className={`${visible[2].id === project.id ? "w-5" : "w-4"}`}
+                    className={`m-0 sm:my-4 ${visible[2].id === project.id ? "w-4 sm:w-5" : "w-3 sm:w-4"}`}
                   />
                 </div>
               );
             })}
           </div>
         </div>
+
         {/* {visible.map((project, idx) => {
           return <Card key={idx} id={project.id} project={project.data} />;
         })} */}

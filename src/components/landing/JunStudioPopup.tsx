@@ -16,13 +16,19 @@ export default function JunStudioPopup() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+      className="absolute flex flex-col bottom-24 sm:bottom-auto left-10 sm:left-24 xl:left-48"
     >
-      <motion.div
-        style={{ opacity }}
-        className="absolute flex flex-col xl:left-48"
-      >
-        <LinkIcons />
-        <p className="text-white mt-2">made by jun studio</p>
+      <motion.div style={{ opacity }} className="flex flex-col">
+        <LinkIcons altStyle="hidden sm:block" />
+        <p className="text-white text-sm sm:mt-2 sm:text-lg">
+          made by jun studio
+        </p>
+        <a
+          className="sm:hidden text-white text-xs no-underline hover:text-amber-1"
+          href="/changelog"
+        >
+          v2.1.2
+        </a>
       </motion.div>
     </motion.div>
   );
