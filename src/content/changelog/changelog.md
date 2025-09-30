@@ -1,3 +1,8 @@
+# 2.1.3
+* made initial landing page responsive
+  * fixed margin images
+  * fixed the background parallax image, added gradient on bottom
+  * added hamburger for navbar
 
 # 2.1.2
 
