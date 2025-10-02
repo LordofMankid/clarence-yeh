@@ -1,5 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
+import Changelog from "../../content/changelog/changelog.md?raw";
+
+const version = Changelog.match(/^#\s*(.+)$/m)?.[1] ?? "v2.1.X";
+
 export default function VersionNumber() {
   const { scrollY } = useScroll();
 
@@ -24,7 +28,7 @@ export default function VersionNumber() {
           className="text-white text-lg no-underline hover:text-amber-1"
           href="/changelog"
         >
-          v2.1.2
+          {version}
         </a>
       </motion.div>
     </motion.div>

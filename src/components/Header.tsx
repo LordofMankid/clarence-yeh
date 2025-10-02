@@ -42,7 +42,7 @@ export default function Header(props: { currentPath: string }) {
       <nav className="fixed hidden sm:flex mt-12 w-full z-50 ">
         <a href="/">
           <img
-            className="absolute h-20 w-20 ml-28 rounded-5xl"
+            className="absolute h-20 w-20 ml-28 rounded-5xl hidden md:flex"
             src="/assets/pixelProfPic.png"
           />
         </a>

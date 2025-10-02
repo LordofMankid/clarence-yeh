@@ -7,35 +7,45 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="world">
-  <div class="flex flex-row w-[80vw] item-start pt-60 justify-between m-auto">
+  <div
+    class="w-[90vw] md:w-[85vw] xl:w-[70vw] 2xl:w-[55vw] m-auto pt-60 pb-10 block"
+  >
+    <a
+      href="javascript:history.back()"
+      class="text-lg text-white hover:text-amber-1">&lt;-- back</a
+    >
+  </div>
+  <div
+    class="flex flex-col xl:flex-row gap-10 xl:gap-0 w-[80vw] item-start justify-between m-auto"
+  >
     <div class="flex flex-col flex-1/3 justify-start">
       <h2 class="text-white m-0">Clarence Yeh</h2>
       <p class="text-white text-xl">software engineer</p>
       <LinkIcons altStyle="h-9" altContainerStyle="mt-1" />
     </div>
-    <div class="flex flex-col flex-2/3 gap-4">
+    <div class="flex flex-col flex-2/3 gap-20 sm:gap-4">
       <ResumeItem
         date="JULY 2023 - PRESENT"
         title="Co-Founder, Tech Lead"
         organization="Freebites"
       >
         <div class="flex flex-col gap-3">
-          <p class="text-base">
+          <p class="text-sm xl:text-base">
             Leading 8 developers and 2 designers to build, launch, and support a
             React Native app dedicated to reducing food waste on college
             campuses.
           </p>
 
-          <p class="text-base">
+          <p class="text-sm xl:text-base">
             Used by 1000+ users and supported on GCP Cloud Run.
           </p>
 
-          <p class="text-base">
+          <p class="text-sm xl:text-base">
             Designed and implemented REST APIs for core features(posting,
             commenting, blocking), managed backend infrastructure and Firebase
             auth.
           </p>
-          <p class="text-base">
+          <p class="text-sm xl:text-base">
             Pitched the app in entrepreneurship competitions, raising $5,000+ in
             funding.
           </p>
@@ -46,7 +56,7 @@ import Layout from "../layouts/Layout.astro";
         title="Tech Lead"
         organization="JumboCode: English At Large"
       >
-        <p class="text-base">
+        <p class="text-sm xl:text-base">
           Led the development of a Next.js/PostgreSQL library webapp to serve
           immigrant communities in the Greater Boston Area.
         </p>
@@ -57,12 +67,12 @@ import Layout from "../layouts/Layout.astro";
         organization="Markit AI"
       >
         <div class="flex flex-col gap-3">
-          <div class="text-base">
+          <div class="text-sm xl:text-base">
             Developed React/React Native full stack software solutions for
             Markit, such as user data export features and developing + launching
             new landing and explore pages for the web app.
           </div>
-          <div class="text-base">
+          <div class="text-sm xl:text-base">
             Performed critical updates to the app's infrastructure, such as
             updating and migrating to new notification and authentication
             services for its 100,000 users.
@@ -74,7 +84,7 @@ import Layout from "../layouts/Layout.astro";
         title="Full Stack Developer"
         organization="Tufts JumboCode"
       >
-        <div class="text-base">
+        <div class="text-sm xl:text-base">
           Worked on a team of 13 student to develop a website-building platform
           for Keep Mass Beautiful, a 40+ chapter statewide environmental
           non-profit.

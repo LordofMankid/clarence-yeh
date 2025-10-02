@@ -8,12 +8,22 @@ interface Props {
 const { date, title, organization } = Astro.props;
 ---
 
-<div class="flex items-start gap-20">
-  <div class="text-lg text-white flex-1/4 flex-col gap-4">{date}</div>
-  <div class="flex flex-col flex-5/6 gap-x-44">
-    <div class="flex w-full text-white justify-between">
-      <h2 class="text-inherit text-2xl font-bold m-0">{title}</h2>
-      <h2 class="text-inherit text-2xl font-bold m-0 pr-4">{organization}</h2>
+<div class="flex flex-col sm:flex-row items-start gap-0 sm:gap-10 xl:gap-20">
+  <div
+    class="text-base xl:text-ls text-white font-bold sm:font-normal flex-1/4 flex-col gap-4"
+  >
+    {date}
+  </div>
+  <div class="flex flex-col flex-2/3 xl:flex-5/6 gap-x-44">
+    <div class="flex flex-col md:flex-row w-full text-white justify-between">
+      <h2 class="text-inherit text-base md:text-xl xl:text-2xl font-bold m-0">
+        {title}
+      </h2>
+      <h2
+        class="text-inherit text-base md:text-xl xl:text-2xl font-bold m-0 pr-4"
+      >
+        {organization}
+      </h2>
     </div>
     <div class="text-amber-50 font-ibm-plex-mono"><slot /></div>
   </div>

@@ -1,3 +1,9 @@
+# 2.1.4
+* continued responsiveness from about and pages section
+  * adjusted back buttons for about/blog sections, 
+  * adjusted position of header to handle resizing better (not just mobile -> desktop)
+  * version number pulls from this page instead 
+  
 # 2.1.3
 * made initial landing page responsive
   * fixed margin images

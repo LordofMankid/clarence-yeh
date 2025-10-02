@@ -5,29 +5,37 @@ const blogs = await getCollection("blogs");
 ---
 
 <Layout>
-  <div class="md:w-[85vw] xl:w-[70vw] 2xl:w-[55vw] m-auto pt-40 pb-10 block">
+  <div
+    class="w-[90vw] md:w-[85vw] xl:w-[70vw] 2xl:w-[55vw] m-auto pt-40 pb-10 block"
+  >
     <a
       href="javascript:history.back()"
       class="text-lg text-white hover:text-amber-1">&lt;-- back</a
     >
   </div>
-  <h2 class="text-white md:w-[80vw] xl:w-[65vw] 2xl:w-[50vw] m-auto my-0 py-0">
+  <h2
+    class="text-white w-[90vw] md:w-[80vw] xl:w-[65vw] 2xl:w-[50vw] m-auto my-0 py-0"
+  >
     Blog
   </h2>
-  <ul class="list-none md:w-[80vw] xl:w-[65vw] 2xl:w-[50vw] m-auto pt-5">
+  <ul
+    class="list-none w-[95vw] md:w-[80vw] xl:w-[65vw] 2xl:w-[50vw] m-auto pt-5"
+  >
     {
       blogs
         .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
         .map((blog) => {
           return (
-            <li class="flex w-full justify-between">
+            <li class="flex flex-col md:flex-row w-full justify-between">
               <a
-                class="text-white font-ibm-plex-mono hover:text-orange-300"
+                class="text-white font-ibm-plex-mono text-xs sm:text-base hover:text-orange-300"
                 href={`/blogs/${blog.id}`}
               >
                 {blog.data.title}
               </a>
-              <p class="text-white">{blog.data.date.toDateString()}</p>
+              <p class="text-white text-xs sm:text-base">
+                {blog.data.date.toDateString()}
+              </p>
             </li>
           );
         })
