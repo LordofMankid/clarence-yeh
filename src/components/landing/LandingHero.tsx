@@ -57,7 +57,7 @@ export default function LandingHero() {
           <a
             href="/other/Clarence Yeh - Resume.pdf"
             download
-            className="underline text-white text-sm"
+            className="underline text-white text-sm inline sm:hidden"
           >
             resume
           </a>
