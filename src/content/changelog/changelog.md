@@ -1,10 +1,18 @@
+
+# 2.1.5
+
+* added in [char motion package](https://char-motion.vercel.app/) for landing page
+  * fixed hover bug
+
 # 2.1.4
+
 * continued responsiveness from about and pages section
-  * adjusted back buttons for about/blog sections, 
+  * adjusted back buttons for about/blog sections,
   * adjusted position of header to handle resizing better (not just mobile -> desktop)
-  * version number pulls from this page instead 
-  
+  * version number pulls from this page instead
+
 # 2.1.3
+
 * made initial landing page responsive
   * fixed margin images
   * fixed the background parallax image, added gradient on bottom
@@ -22,7 +30,7 @@
 ## 2.1.1
 
 * added spotify “now-playing” widget, connected to personal Spotify account
-  * this widget will update every 60 seconds\
+  * this widget will update every 60 seconds\\
 * check out [my blog](/blogs/Devlog-i-made-a-Spotify-widget-for-my-portfolio.mdx) about this process!
 
 ## 2.1.0

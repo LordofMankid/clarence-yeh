@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import LinkIcons from "../atoms/LinkIcons";
-
+import { Txt } from "@char-motion/react";
 export default function LandingHero() {
   const { scrollY } = useScroll();
 
@@ -21,11 +21,14 @@ export default function LandingHero() {
     >
       <motion.div
         style={{ opacity }}
-        className="flex flex-col h-[calc(100vh-192px)] w-screen justify-center pt-28"
+        className="flex flex-col h-[calc(100vh-192px)] w-screen justify-center items-center pt-28"
       >
-        <h1 className="text-white sm:text-8xl font-bold mx-auto">
+        <Txt
+          enter={{ type: "typed sweep", options: { rate: 60 } }}
+          className="text-white sm:text-8xl font-bold mx-auto"
+        >
           Clarence Yeh
-        </h1>
+        </Txt>
         <h2 className="text-white text-sm font-normal sm:text-2xl sm:font-semibold sm:mt-4 mx-auto text-center">
           currently co-founder & cto of{" "}
           <a
@@ -70,7 +73,13 @@ export default function LandingHero() {
           animate={{ opacity: 1, y: 0 }} // fade in + slide up
           transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }} // 1s delay
         >
-          check out my resume
+          <Txt
+            enter={{ type: "number sweep", options: { rate: 10 } }}
+            hover={{ type: "typed sweep", options: { idle: false } }}
+            className="h-4 inline"
+          >
+            check out my resume
+          </Txt>
         </motion.a>
       </motion.div>
     </motion.div>

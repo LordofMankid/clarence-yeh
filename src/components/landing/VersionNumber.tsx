@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import Changelog from "../../content/changelog/changelog.md?raw";
+import { Txt } from "@char-motion/react";
 
 const version = Changelog.match(/^#\s*(.+)$/m)?.[1] ?? "v2.1.X";
 
@@ -28,7 +29,14 @@ export default function VersionNumber() {
           className="text-white text-lg no-underline hover:text-amber-1"
           href="/changelog"
         >
-          {version}
+          <Txt
+            enter={{
+              type: "number sweep",
+              options: { characterPool: "123456." },
+            }}
+          >
+            {version}
+          </Txt>
         </a>
       </motion.div>
     </motion.div>

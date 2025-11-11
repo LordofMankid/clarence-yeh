@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import LinkIcons from "../atoms/LinkIcons";
 import Changelog from "../../content/changelog/changelog.md?raw";
+import { Txt } from "@char-motion/react";
 
 const version = Changelog.match(/^#\s*(.+)$/m)?.[1] ?? "v2.1.X";
 
@@ -24,14 +25,22 @@ export default function JunStudioPopup() {
     >
       <motion.div style={{ opacity }} className="flex flex-col">
         <LinkIcons altStyle="hidden sm:block" />
-        <p className="text-white text-sm sm:mt-2 sm:text-lg">
+        <Txt
+          enter={{
+            type: "typed sweep",
+            options: { startDelay: 500, rate: 50 },
+          }}
+          className="text-white text-sm sm:mt-2 sm:text-lg"
+        >
           made by jun studio
-        </p>
+        </Txt>
         <a
           className="sm:hidden text-white text-xs no-underline hover:text-amber-1"
           href="/changelog"
         >
-          {version}
+          <Txt enter={{ type: "number sweep" }} hover={{ type: "twinkle" }}>
+            {version}
+          </Txt>
         </a>
       </motion.div>
     </motion.div>
