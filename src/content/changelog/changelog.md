@@ -1,4 +1,9 @@
 
+# 2.1.6
+
+* updated title to reflect new position :)
+  * need to update blog soon
+
 # 2.1.5
 
 * added in [char motion package](https://char-motion.vercel.app/) for landing page

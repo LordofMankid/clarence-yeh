@@ -29,26 +29,35 @@ export default function LandingHero() {
         >
           Clarence Yeh
         </Txt>
-        <h2 className="text-white text-sm font-normal sm:text-2xl sm:font-semibold sm:mt-4 mx-auto text-center">
-          currently co-founder & cto of{" "}
+        <h2 className="text-white text-sm font-normal sm:text-2xl sm:font-semibold sm:mt-4 mx-auto text-center hidden sm:inline">
+          software engineer at{" "}
           <a
-            href="https://freebites.org"
+            href="https://www.cmtelematics.com/"
             target="_blank"
             className="underline text-inherit font-normal sm:font-semibold hover:text-amber-1"
           >
-            Freebites
+            Cambridge Mobile Telematics
           </a>
           <br />
-          <span className="hidden sm:inline">
-            previously software engineer at{" "}
-            <a
-              href="https://markitai.com/"
-              target="_blank"
-              className="underline text-inherit font-normal sm:font-semibold hover:text-amber-1"
-            >
-              Markit AI
-            </a>
-          </span>
+          previously software engineer at{" "}
+          <a
+            href="https://markitai.com/"
+            target="_blank"
+            className="underline text-inherit font-normal sm:font-semibold hover:text-amber-1"
+          >
+            Markit AI
+          </a>
+        </h2>
+
+        <h2 className="text-white text-sm font-normal sm:text-2xl sm:font-semibold sm:mt-4 mx-auto text-center inline sm:hidden">
+          software engineer at{" "}
+          <a
+            href="https://www.cmtelematics.com/"
+            target="_blank"
+            className="underline text-inherit font-normal sm:font-semibold hover:text-amber-1"
+          >
+            CMT
+          </a>
         </h2>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
