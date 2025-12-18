@@ -36,7 +36,7 @@ export default function LandingHero() {
             target="_blank"
             className="underline text-inherit font-normal sm:font-semibold hover:text-amber-1"
           >
-            Cambridge Mobile Telematics
+            cambridge mobile telematics
           </a>
           <br />
           previously software engineer at{" "}
